@@ -1,5 +1,5 @@
 {
-  "name": "sary-ds",
+  "name": "@mohamedRazzak/sary-ds",
   "version": "0.0.2",
   "scripts": {
     "ng": "ng",
@@ -57,7 +57,7 @@
   "main": "karma.conf.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SaryTech/SaryDesignSystem.git"
+    "url": "git+https://github.com/MohammedRazzak/ds.git"
   },
   "author": "Sary Team",
   "license": "MIT",
