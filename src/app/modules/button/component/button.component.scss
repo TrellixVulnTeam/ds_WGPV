@@ -1,0 +1,174 @@
+@import "/src/styles.scss";
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: $radius_sm;
+  color: $clr_neutral_800;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0 16px;
+  transition: .2s ease-in;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 5.33px;
+
+  // Sizes
+  &.lg {
+    height: 48px;
+  }
+
+  &.md {
+    height: 40px;
+  }
+
+  &.sm {
+    height: 32px;
+  }
+
+  // Appearances / Themes
+  &_primary {
+    color: $clr_neutral_0;
+    background-color: $clr_primary_700;
+
+    &:hover {
+      background-color: $clr_primary_400;
+    }
+
+    &:active {
+      background-color: $clr_primary_900;
+    }
+  }
+
+  &_secondary {
+    color: $clr_primary_700;
+    background-color: $clr_primary_50;
+
+    &:hover {
+      color: $clr_primary_400;
+    }
+
+    &:active {
+      color: $clr_primary_900;
+    }
+  }
+
+  &_tertiary {
+    background-color: $clr_neutral_0;
+    border: 1px solid $clr_neutral_400;
+  }
+
+  &_destructive {
+    background-color: $clr_danger_900;
+    color: $clr_neutral_0;
+
+    &:hover {
+      background-color: $clr_danger_700;
+    }
+
+    &:active {
+      background-color: $clr_danger_max;
+    }
+  }
+
+  &_text {
+    height: 32px;
+    padding: 0 8px;
+    background-color: transparent;
+  }
+
+  &_icon {
+    border: 1px solid $clr_neutral_200;
+    background-color: $clr_neutral_0;
+    justify-content: center;
+
+    &.sm {
+      height: 32px;
+      width: 32px;
+    }
+
+    &.md {
+      height: 36px;
+      width: 36px;
+      font-size: 24px;
+    }
+
+    &.lg {
+      height: 40px;
+      width: 40px;
+      font-size: 24px;
+    }
+  }
+
+  &_grouped {
+    border-inline-end: none;
+    border-radius: 0;
+
+    &.first {
+      border-start-start-radius: $radius_sm;
+      border-end-start-radius: $radius_sm;
+    }
+
+    &.last {
+      border-end-end-radius: $radius_sm;
+      border-start-end-radius: $radius_sm;
+      border: 1px solid $clr_neutral_400;
+    }
+  }
+
+  // Interactions ( hover, focus, active )
+  &_primary,
+  &_destructive {
+    &:focus {
+      box-shadow: 0 0 0 2px $clr_neutral_0, 0 0 0 4px $clr_primary_400;
+    }
+  }
+
+  &_secondary,
+  &_tertiary,
+  &_text,
+  &_icon {
+    &:focus {
+      box-shadow: 0 0 0 2px $clr_primary_400;
+    }
+  }
+
+  &_tertiary,
+  &_text,
+  &_icon {
+    &:hover {
+      background-color: $clr_neutral_100;
+    }
+
+    &:active {
+      background-color: $clr_neutral_200;
+    }
+  }
+
+  &_text {
+    &:focus {
+      background-color: $clr_neutral_0;
+    }
+  }
+
+  &_grouped {
+    position: relative;
+    transition: none;
+
+    &:hover {
+      transition: .2s ease-in;
+    }
+
+    &:focus {
+      transition: .2s ease-in;
+      border-color: transparent !important;
+      z-index: 9;
+    }
+  }
+
+  &:disabled {
+    background-color: $clr_neutral_100;
+    color: $clr_neutral_400;
+  }
+}

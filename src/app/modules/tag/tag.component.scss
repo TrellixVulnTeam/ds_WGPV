@@ -1,0 +1,39 @@
+@import '/src/styles.scss';
+
+.tag {
+  background: $clr_primary_50;
+  padding: 5px 12px;
+  border-radius: $radius_sm;
+  border: 1px solid $clr_primary_200;
+  color: $clr_primary_700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  cursor: default;
+  column-gap: 4px;
+
+  &_text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 90px;
+    color: $clr_primary_700;
+  }
+
+  &_close {
+    cursor: pointer;
+    line-height: unset;
+    font-size: 16px;
+    font-weight: bold;
+    color: $clr_neutral_900;
+    line-height: 20px;
+  }
+
+  .vertical-line {
+    height: 16px;
+    width: 1px;
+    border-radius: 2px;
+    background-color: $clr_primary_200;
+  }
+}

@@ -1,0 +1,10 @@
+<span class="tag" [title]="title">
+  <span class="tag_text txt txt-body">{{ title }}</span>
+  <ng-container *ngIf="!readonly">
+    <div class="vertical-line"></div>
+    <span
+      class="si-close tag_close"
+      (click)="onTagClose($event)"
+    ></span>
+  </ng-container>
+</span>

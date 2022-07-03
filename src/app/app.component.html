@@ -1,0 +1,78 @@
+<div class="container">
+<sr-editable-text></sr-editable-text>
+  <br>
+  <h1 class="txt-lg">This is <em>Sary</em> Design system.</h1>
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <i class="si-info"></i>
+    <p class="txt-body">So instead of serving this app in angular way, please run this command <strong>"npm run storybook"</strong></p>
+  </div>
+  <p class="txt-caption">It can also be a playground to test your newly created components, so feel free to fill this page with awesome stuff.</p>
+  <sr-dropdown [data]="[
+  { title: 'opt 1', value: 1 },
+  { title: 'opt 2', value: 2 },
+  { title: 'opt 3', value: 3 },
+  { title: 'opt 4', value: 4 },
+  { title: 'opt 5', value: 5 }
+  ]"></sr-dropdown>
+
+  <sr-checkbox 
+    [enableIntermediate]="true" 
+    label="Checkbox" 
+    description="Describe your checkbox here.">
+  </sr-checkbox>
+  <sr-checkbox 
+    [disabled]="true">
+  </sr-checkbox>
+
+  <sr-radio 
+    label="label only">
+  </sr-radio>
+
+  <sr-radio 
+    label="Radio-button" 
+    description="Describe your checkbox here.">
+  </sr-radio>
+
+  <sr-radio 
+    label="Disabled" 
+    description="Label and description disabled."
+    [disabled]="true">
+  </sr-radio>
+
+  <sr-radio [disabled]="true" state="checked"></sr-radio>
+  <sr-radio></sr-radio>
+  <sr-dynamic-form [controls]="formControls" (onSubmitClicked)="submitForm($event)"></sr-dynamic-form>
+  <sr-tabs [data]="[{title: 'tab 1', value: 1}, {title: 'tab 2', value: 2}, {title: 'تاب عربي', value: 3}, {title: 'tab long text here', value: 4}]"></sr-tabs>
+  <br>
+  <br>
+  <sr-table 
+    [dataSource]="tableData"
+    [enableSelection]="true"
+    (onSort)="onTableSort($event)"
+    (selectionChange)="onTableSelection($event)">
+  </sr-table>
+  <br>
+  <sr-table 
+    class="rounded"
+    [dataSource]="newTableData" 
+    [selectedRows]="[newTableData.bodyData[1], newTableData.bodyData[3]]"
+    [enableSelection]="true"
+    (onSort)="onTableSort($event)"
+    (selectionChange)="onTableSelection($event)">
+  </sr-table>
+  <br>
+  <sr-table 
+    [dataSource]="cardTableData"
+    [cardView]="true"
+    (selectionChange)="onTableSelection($event)">
+  </sr-table>
+  <br>
+  <sr-table 
+    [dataSource]="cardTableData" 
+    [selectedRows]="[cardTableData.bodyData[1], cardTableData.bodyData[3]]"
+    [enableSelection]="true"
+    [cardView]="true"
+    (selectionChange)="onTableSelection($event)">
+  </sr-table>
+</div>
+<div id="placeholder"></div>

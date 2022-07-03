@@ -1,0 +1,19 @@
+<div class="tabs-container" [ngClass]="{'stretch': isStretchy}">
+	<!-- Contains button and selection indicator -->
+	<div
+		class="tab-container"
+		*ngFor="let tab of tabs"
+		(click)="selectTab(tab)"
+	>
+		<!-- Tab / button -->
+		<button class="tab" [ngClass]="{'active': isActive(tab)}">
+			{{ tab.title}}
+		</button>
+		<!-- Selected tab indicator -->
+		<div
+			*ngIf="isActive(tab)"
+			[@slideFillX]="{value: 'slideFillX', params: {leaveTime: '.1s', enterTime: '.15s'} }"
+			class="indicator"
+		></div>
+	</div>
+</div>

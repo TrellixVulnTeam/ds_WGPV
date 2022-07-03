@@ -1,0 +1,22 @@
+<div [formGroup]="form">
+    <div class="label-widget" *ngIf="optional || label">
+        <h3 class="txt txt-body">{{label}}</h3>
+        <span class="txt txt-body" *ngIf="optional">Optional</span>
+    </div>
+    <div class="input {{appearance}} " [ngClass]="{
+    'icon-leading': (iconPosition =='leading' &&  appearance == 'icon'),
+    'error' : error == true,
+    'disabled' : disabled == true,
+    'focus' : inputFocusClass == true
+}">
+        <input placeholder="{{placeHolder}}" type="{{type}}" name="{{key}}" [required]="!optional"
+            [formControlName]='key' (focus)="inputFocusClass = true" (blur)="inputFocusClass = false; null"
+            (change)="inputValue($event)" />
+        <i *ngIf="iconClass" class="icon {{iconClass}} "></i>
+        <span *ngIf="((appearance == 'suffix' || 'prefix') && (txtWithInput)) ">{{txtWithInput}}</span>
+    </div>
+    <div class="hint" *ngIf="hintIcon && hintText">
+        <i class="{{hintIcon}}"></i>
+        <p class="txt txt-caption">{{hintText}}</p>
+    </div>
+</div>

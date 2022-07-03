@@ -1,0 +1,124 @@
+@import '/src/styles.scss';
+
+:host {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 12px 10px;
+  color: $clr_neutral_900;
+  padding-inline-end: 0;
+
+  &:first-of-type {
+    padding-inline-start: 24px;
+  }
+
+  &:last-of-type {
+    padding-inline-end: 24px;
+  }
+
+  .cell-content {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    img {
+      object-position: center center;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+      height: 40px;
+      width: 40px;
+      border-radius: $radius_md;
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    .caption {
+      color: $clr_neutral_600;
+    }
+
+    .sort-icon {
+      cursor: pointer;
+
+      &.descending {
+        &::before {  
+          display: inline-block;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .tooltip-wrapper {
+      position: relative;
+      display: flex;
+
+      i {
+        cursor: help;
+      }
+
+      .tooltip {
+        transition: .2s ease-in;
+        position: absolute;
+        background-color: $clr_neutral_900;
+        color: $clr_neutral_0;
+        width: max-content;
+        max-width: 320px;
+        padding: 8px 16px;
+        border-radius: 4px;
+        top: calc(100% + 10px);
+        inset-inline-start: 50%;
+        transform: translate(-50%, 10px);
+        visibility: hidden;
+        opacity: 0;
+
+        &::before {
+          position: absolute;
+          content: '';
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 9px 8px 9px;
+          border-color: transparent transparent $clr_neutral_900 transparent;
+          bottom: 100%;
+          inset-inline-start: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &:hover {
+        color: $clr_neutral_900;
+
+        .tooltip {
+          visibility: visible;
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+      }
+    }
+  }
+
+  &.header-cell {
+    background-color: $clr_neutral_50;
+    color: $clr_neutral_600;
+    box-shadow: inset 0px -1px 0px $clr_neutral_100;
+    padding-block: 0;
+    height: 48px;
+    cursor: default;
+  }
+
+
+  &.checkbox-cell {
+    padding: 14px;
+    width: 1%;
+  }
+
+  &.card-view {
+    padding: 16px;
+    padding-inline-end: 0;
+
+    &:last-of-type {
+      padding-inline-end: 16px;
+    }
+  }
+
+  .flip-v {
+    transform: rotate(180deg);
+  }
+}

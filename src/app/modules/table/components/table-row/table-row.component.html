@@ -1,0 +1,18 @@
+<sr-table-cell 
+  *ngIf="enableSelection"
+  [ngClass]="{ 'header-cell': header, 'card-view': cardView, 'checkbox-cell': true }"
+  [checkbox]="true"
+  [headerCheckbox]="header"
+  [selectionState]="selectionState"
+  (onCheckboxChange)="onSelectionChange($event)">
+</sr-table-cell>
+
+<ng-container *ngFor="let cellData of data.rowData">
+  <sr-table-cell
+    [data]="cellData"
+    [cardView]="cardView"
+    [ngClass]="{ 'header-cell': header, 'card-view': cardView}"
+    (onSort)="onSortChange($event)"
+    (onCheckboxChange)="onSelectionChange($event)"
+  ></sr-table-cell>
+</ng-container>

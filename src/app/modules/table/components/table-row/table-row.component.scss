@@ -1,0 +1,15 @@
+@import '/src/styles.scss';
+
+:host {
+  display: table-row;
+  box-shadow: inset 0px -1px 0px $clr_neutral_100;
+
+  &:last-of-type {
+    box-shadow: none;
+  }
+
+  &.card-view {
+    box-shadow: $depth_2;
+    border-radius: $radius_lg;
+  }
+}

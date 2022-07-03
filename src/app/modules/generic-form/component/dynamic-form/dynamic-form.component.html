@@ -1,0 +1,15 @@
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+        <div *ngFor="let control of controls" class="form-row">
+            <sr-dynamic-form-control [control]="control" [form]="form"></sr-dynamic-form-control>
+        </div>
+
+        <div class="form-row">
+            <sr-button [label]="submitBtn?.label" [size]="submitBtn?.size" [loading]="submitBtn.loading"
+                [disabled]="form.invalid" [appearance]="submitBtn.appearance" [type]="'submit'">
+            </sr-button>
+        </div>
+    </form>
+
+</div>

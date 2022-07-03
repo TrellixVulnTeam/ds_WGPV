@@ -1,0 +1,110 @@
+/* Font Family */
+@font-face {
+  font-family: "sary-font";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../icons/fonts/sary-font/Sary-Regular.woff");
+  
+}
+
+
+/* Font Sizes */
+$font_caption: 14px;
+$font_body: 16px;
+$font_subtitle: 18px;
+$font_display_sm: 20px;
+$font_display_md: 24px;
+$font_display_lg: 32px;
+
+/* Line Height */
+$LH_caption : 17px;
+$LH_body : 22px;
+$LH_subtitle: 23px;
+$LH_display_sm : 24px;
+$LH_display_md : 28px;
+$LH_display_lg : 35px;
+
+.txt, h1, h2, h3, h4, h5, h6, p {
+  // you don't have to use ".txt" class on these elements above
+  // you only need to use it on non-text elements such as a <span> or <div> ...etc
+  margin: 0px;
+  padding: 0px;
+  font-family: sary-font;
+  display: block;
+}
+// Display Large
+.txt-lg{
+  font-weight: 600;
+  font-size: $font_display_lg;
+  line-height: $LH_display_lg;
+  padding-top: 5px;
+  @media only screen and (max-width: 768px) {
+    font-size: $font_display_md;
+    line-height: $LH_display_md;
+    padding-top: 4px;
+  }
+}
+
+// Display Medium
+.txt-md{
+  font-weight: 600;
+  font-size: $font_display_md;
+  line-height: $LH_display_md;
+  padding-top: 4px;
+  @media only screen and (max-width: 768px) {
+    font-size: $font_display_sm;
+    line-height: $LH_display_sm;
+  }
+}
+
+// Display Small
+.txt-sm{
+  font-weight: 400;
+  font-size: $font_display_sm;
+  line-height: $LH_display_sm;
+  padding-top: 4px;
+  @media only screen and (max-width: 768px) {
+    padding-top: 3px;
+    font-size: $font_subtitle;
+    line-height: $LH_subtitle;
+  }
+}
+
+// Subtitle
+.txt-subtitle{
+  font-weight: 600;
+  font-size: $font_subtitle;
+  line-height: $LH_subtitle;
+  padding-top: 3px;
+}
+
+// Body
+.txt-body{
+  font-weight: 400;
+  font-size: $font_body;
+  line-height: $LH_body;
+  padding-top: 2px;
+}
+
+// Caption
+.txt-caption{
+  font-weight: 400;
+  font-size: $font_caption;
+  line-height: $LH_caption;
+  padding-top: 3px;
+}
+/* 
+  * consider the line height issue of saryfont
+  * so when implementing font sizes we can do the fix for each size
+  * to avoid extra effort for each text element
+  * example: $font_size_sm: 14px, $font_LH_sm: 12px, $font_hight_sm: 14px ( these are not accurate values, just for demo )
+  * use: .class {
+    font-size: $font_size_sm
+    line-height: $font_LH_sm [ REQUIRED ]
+    height: $font_height_sm [ REQUIRED ]
+  }
+  * so we can't have a div with 100px height and has text inside directly
+  * we must add a <p> or a <span> to contain the text and take these styles/fixes
+*/
+
+/* Font Weights */

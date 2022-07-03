@@ -1,0 +1,11 @@
+<button class="checkbox {{disabled ? 'disabled' : state}}" (click)="onChange()"
+  [ngClass]="{'has-label': label}">
+  <i
+    [class]="state == 'mid' ? 'si-minus' : state == 'checked' ? 'si-check-ii' : ''">
+  </i>
+</button>
+
+<div *ngIf="label || description" class="info">
+  <p class="txt-body" (click)="onChange()">{{ label }}</p>
+  <p class="txt-caption">{{ description }}</p>
+</div>

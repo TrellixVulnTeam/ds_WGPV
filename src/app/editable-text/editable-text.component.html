@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <p class="txt-body" *ngIf="!isEditing">{{ txt }}</p>
+  <input
+    *ngIf="isEditing"
+    type="text"
+    [(ngModel)]="txt"
+    (keydown.enter)="isEditing = !isEditing"
+  />
+  <sr-button
+    appearance="icon"
+    [iconClass]="!isEditing ? 'si-filter' : 'si-checkmark'"
+    size="sm"
+    (clicked)="isEditing = !isEditing"
+  ></sr-button>
+</div>

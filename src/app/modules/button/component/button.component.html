@@ -1,0 +1,21 @@
+<button 
+	class="btn btn_{{grouped ? 'tertiary' : appearance}} {{size}} {{orderInGroup}}" 
+	[ngClass]="{'btn_grouped': grouped}" (click)="onClick()" [type]="type" [disabled]="disabled"
+>
+	<!-- Icon [ prefix or suffix ] based on style.order -->
+	<i
+		*ngIf="iconClass && !(appearance == 'icon' && loading)"
+		[class]="iconClass"
+		[ngStyle]="{'order': trailingIcon ? 1 : 0}"
+	></i>
+
+	<!-- Label  -->
+	<span *ngIf="label && appearance !== 'icon'" class="txt txt-body">{{ label }}</span>
+
+	<!-- Loading indicator -->
+	<i
+		*ngIf="loading"
+		class="si-loading-ii infinite-rotation"
+		[ngStyle]="{'order': 2}"
+	></i>
+</button>

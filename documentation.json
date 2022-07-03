@@ -1,0 +1,3796 @@
+{
+    "pipes": [
+        {
+            "name": "SearchPipe",
+            "id": "pipe-SearchPipe-3ccf911f343934577446892e5528e285df8dcb7f979ecd7e5fc9f1441a4edff9ff6555b4efa2a22b44163ddbba9b9c375d2459ca542516a9c150a71522c85aec",
+            "file": "src/app/modules/dropdown/search.pipe.ts",
+            "type": "pipe",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "transform",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "DropdownOption[]",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "searchText",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "any",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "DropdownOption[]",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "searchText",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ngname": "search",
+            "sourceCode": "import { Pipe, PipeTransform } from '@angular/core';\r\nimport { DropdownOption } from './dropdown-option.model';\r\n\r\n@Pipe({\r\n\tname: 'search'\r\n})\r\nexport class SearchPipe implements PipeTransform {\r\n\ttransform(value: DropdownOption[], searchText: string): any {\r\n\t\tif (!value) return null;\r\n\t\tif (!searchText) return value;\r\n\r\n\t\tsearchText = searchText.toLowerCase();\r\n\r\n\t\treturn value.filter((option) => {\r\n\t\t\treturn option.title.toLowerCase().includes(searchText);\r\n\t\t});\r\n\t}\r\n}\r\n"
+        }
+    ],
+    "interfaces": [
+        {
+            "name": "IDropdownOption",
+            "id": "interface-IDropdownOption-0ca80570be149eb1d4b5d04f792aba1d55efff194ee71a1815bd430e9a460e1dbce5dff21fed4bdb9ae1ecb2cbf995e0d1671d35a465927eab63d66abffdcfa8",
+            "file": "src/app/modules/dropdown/dropdown-option.model.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface IDropdownOption {\r\n\ttitle: string;\r\n\tvalue: string | number | boolean | any;\r\n\tisDisabled?: boolean;\r\n\tisDefault?: boolean;\r\n\ticonClass?: string;\r\n}",
+            "properties": [
+                {
+                    "name": "iconClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "isDefault",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "isDisabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | number | boolean | any",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        }
+    ],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-d2808b1eba74f7c498d6fa7c1752b8c9e4489496a27004ffbcfa231fcd36c9efd5f7e194426dad1b98dafb6acd0ee5ef444e49b557d6676d4d7faf696915fb78",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'Sary-DS'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss']\r\n})\r\nexport class AppComponent {\r\n  title = 'Sary-DS';\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<h1 class=\"txt-lg\">This is <em>Sary</em> Design system.</h1>\r\n<p class=\"txt-body\">\r\n  <i class=\"si-info\"></i> So instead of serving this app in angular way, please\r\n  run this command <strong>\"npm run storybook\"</strong>\r\n</p>\r\n<p class=\"txt-caption\">It can also be a playground to test your newly created components, so feel free to fill this page with awesome stuff.</p>\r\n<sr-dropdown [data]=\"[\r\n{ title: 'opt 1', value: 1 },\r\n{ title: 'opt 2', value: 2 },\r\n{ title: 'opt 3', value: 3 },\r\n{ title: 'opt 4', value: 4 },\r\n{ title: 'opt 5', value: 5 }\r\n]\" [multiSelect]=\"true\"></sr-dropdown>\r\n\r\n<sr-checkbox \r\n  [enableIntermediate]=\"true\" \r\n  label=\"Checkbox\" \r\n  description=\"Describe your checkbox here.\">\r\n</sr-checkbox>\r\n<sr-checkbox \r\n  [enableIntermediate]=\"true\">\r\n</sr-checkbox>\r\n\r\n\r\n<sr-radio \r\n  label=\"Radio-button\" \r\n  description=\"Describe your checkbox here.\">\r\n</sr-radio>\r\n<sr-radio [disabled]=\"true\" state=\"checked\"></sr-radio>\r\n<sr-radio></sr-radio>"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-ad08bb542cf29299ebffaa5fade13d0e502f4814741bb4931bc0a8bde70fcf14490d3a474bf69b92ce30170280e249d47c450e044b3b0c7e99134bde7b5c37eb",
+            "file": "src/app/modules/button/component/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sr-button",
+            "styleUrls": [
+                "./button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "appearance",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"destructive\" | \"text\" | \"icon\"",
+                    "decorators": []
+                },
+                {
+                    "name": "grouped",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "iconClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "loading",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "orderInGroup",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "\"first\" | \"last\"",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"sm\" | \"md\" | \"lg\"",
+                    "decorators": []
+                },
+                {
+                    "name": "trailingIcon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "clicked",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\n@Component({\r\n\tselector: 'sr-button',\r\n\ttemplateUrl: './button.component.html',\r\n\tstyleUrls: ['./button.component.scss']\r\n})\r\nexport class ButtonComponent {\r\n\t// @ Button text @ //\r\n\t@Input() label!: string;\r\n\r\n\t// @ Button style @ //\r\n\t@Input() appearance:\r\n\t\t| 'primary'\r\n\t\t| 'secondary'\r\n\t\t| 'tertiary'\r\n\t\t| 'destructive'\r\n\t\t| 'text'\r\n\t\t| 'icon' = 'primary';\r\n\r\n\t// @ Button size @ //\r\n\t@Input() size: 'sm' | 'md' | 'lg' = 'md';\r\n\r\n\t// @ Button icon class [ font-icon ] @ //\r\n\t@Input() iconClass?: string;\r\n\r\n\t// @ Change icon position to suffix [ prefix by default ] @ //\r\n\t@Input() trailingIcon?: boolean;\r\n\r\n\t// @ Loading indicator @ //\r\n\t@Input() loading?: boolean;\r\n\r\n\t// @ Display multiple buttons ( button group ) @ //\r\n\t@Input() grouped?: boolean;\r\n\r\n\t// @ Add a class to identify the first and last buttons in group to adjust styles @ //\r\n\t@Input() orderInGroup?: 'first' | 'last';\r\n\t\r\n\t// @ Emit an event on button clicked @ //\r\n\t@Output() clicked = new EventEmitter()\r\n\tonClick(): void {\r\n\t\tthis.clicked.emit()\r\n\t}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"/src/styles.scss\";\r\n\r\n.btn {\r\n  border: none;\r\n  outline: none;\r\n  border-radius: $radius_sm;\r\n  color: $clr_neutral_800;\r\n  font-size: 16px;\r\n  line-height: 24px;\r\n  padding: 0 16px;\r\n  transition: .2s ease-in;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  column-gap: 5.33px;\r\n\r\n  // Sizes\r\n  &_lg {\r\n    height: 48px;\r\n  }\r\n\r\n  &_md {\r\n    height: 40px;\r\n  }\r\n\r\n  &_sm {\r\n    height: 32px;\r\n  }\r\n\r\n  // Appearances / Themes\r\n  &_primary {\r\n    color: $clr_neutral_0;\r\n    background-color: $clr_primary_700;\r\n\r\n    &:hover {\r\n      background-color: $clr_primary_400;\r\n    }\r\n\r\n    &:active {\r\n      background-color: $clr_primary_900;\r\n    }\r\n  }\r\n\r\n  &_secondary {\r\n    color: $clr_primary_700;\r\n    background-color: $clr_primary_50;\r\n\r\n    &:hover {\r\n      color: $clr_primary_400;\r\n    }\r\n\r\n    &:active {\r\n      color: $clr_primary_900;\r\n    }\r\n  }\r\n\r\n  &_tertiary {\r\n    background-color: $clr_neutral_0;\r\n    border: 1px solid $clr_neutral_400;\r\n  }\r\n\r\n  &_destructive {\r\n    background-color: $clr_danger_900;\r\n    color: $clr_neutral_0;\r\n\r\n    &:hover {\r\n      background-color: $clr_danger_700;\r\n    }\r\n\r\n    &:active {\r\n      background-color: $clr_danger_max;\r\n    }\r\n  }\r\n\r\n  &_text {\r\n    height: 32px;\r\n    padding: 0 8px;\r\n    background-color: transparent;\r\n  }\r\n\r\n  &_icon {\r\n    border: 1px solid $clr_neutral_200;\r\n    background-color: $clr_neutral_0;\r\n    justify-content: center;\r\n\r\n    &.btn_sm {\r\n      height: 32px;\r\n      width: 32px;\r\n    }\r\n\r\n    &.btn_md {\r\n      height: 36px;\r\n      width: 36px;\r\n      font-size: 24px;\r\n    }\r\n\r\n    &.btn_lg {\r\n      height: 40px;\r\n      width: 40px;\r\n      font-size: 24px;\r\n    }\r\n  }\r\n\r\n  &_grouped {\r\n    border-inline-end: none;\r\n    border-radius: 0;\r\n\r\n    &.btn_first {\r\n      border-start-start-radius: $radius_sm;\r\n      border-end-start-radius: $radius_sm;\r\n    }\r\n\r\n    &.btn_last {\r\n      border-end-end-radius: $radius_sm;\r\n      border-start-end-radius: $radius_sm;\r\n      border: 1px solid $clr_neutral_400;\r\n    }\r\n  }\r\n\r\n  // Interactions ( hover, focus, active )\r\n  &_primary,\r\n  &_destructive {\r\n    &:focus {\r\n      box-shadow: 0 0 0 2px $clr_neutral_0, 0 0 0 4px $clr_primary_400;\r\n    }\r\n  }\r\n\r\n  &_secondary,\r\n  &_tertiary,\r\n  &_text,\r\n  &_icon {\r\n    &:focus {\r\n      box-shadow: 0 0 0 2px $clr_primary_400;\r\n    }\r\n  }\r\n\r\n  &_tertiary,\r\n  &_text,\r\n  &_icon {\r\n    &:hover {\r\n      background-color: $clr_neutral_100;\r\n    }\r\n\r\n    &:active {\r\n      background-color: $clr_neutral_200;\r\n    }\r\n  }\r\n\r\n  &_text {\r\n    &:focus {\r\n      background-color: $clr_neutral_0;\r\n    }\r\n  }\r\n\r\n  &_grouped {\r\n    position: relative;\r\n    transition: none;\r\n\r\n    &:hover {\r\n      transition: .2s ease-in;\r\n    }\r\n\r\n    &:focus {\r\n      transition: .2s ease-in;\r\n      border-color: transparent !important;\r\n      z-index: 9;\r\n    }\r\n  }\r\n}",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<button \r\n\tclass=\"btn btn_{{grouped ? 'tertiary' : appearance}} btn_{{size}} btn_{{orderInGroup}}\" \r\n\t[ngClass]=\"{'btn_grouped': grouped}\" (click)=\"onClick()\"\r\n>\r\n\t<!-- Icon [ prefix or suffix ] based on style.order -->\r\n\t<i\r\n\t\t*ngIf=\"iconClass && !(appearance == 'icon' && loading)\"\r\n\t\t[class]=\"iconClass\"\r\n\t\t[ngStyle]=\"{'order': trailingIcon ? 1 : 0}\"\r\n\t></i>\r\n\r\n\t<!-- Label  -->\r\n\t<span *ngIf=\"label && appearance !== 'icon'\" class=\"txt txt-body\">{{ label }}</span>\r\n\r\n\t<!-- Loading indicator -->\r\n\t<i\r\n\t\t*ngIf=\"loading\"\r\n\t\tclass=\"si-loading-ii infinite-rotation\"\r\n\t\t[ngStyle]=\"{'order': 2}\"\r\n\t></i>\r\n</button>"
+        },
+        {
+            "name": "CheckboxComponent",
+            "id": "component-CheckboxComponent-6b526fc7ee6d0c7ef05724c1abc7c0aa36a2bfc8e09c4912b63b32f4f8a10daf767433fda23e029d40dcbd7cf9d01da7f0c4edbbbcc338a163a8917babf66bd7",
+            "file": "src/app/modules/checkbox/checkbox.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sr-checkbox",
+            "styleUrls": [
+                "./checkbox.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./checkbox.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "disableControl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "enableIntermediate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "'empty'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "\"empty\" | \"checked\" | \"mid\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "changed",
+                    "defaultValue": "new EventEmitter<'empty' | 'checked' | 'mid'>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "states",
+                    "defaultValue": "['empty', 'mid', 'checked']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[\"empty\", \"mid\", \"checked\"]",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onChange",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'sr-checkbox',\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrls: ['./checkbox.component.scss'],\r\n})\r\nexport class CheckboxComponent {\r\n  // these types are givin to shut the tslint up!\r\n  private states: ['empty', 'mid', 'checked'] = ['empty', 'mid', 'checked'];\r\n\r\n  @Input() state: 'empty' | 'checked' | 'mid' = 'empty';\r\n\r\n  @Input() label?: string;\r\n\r\n  @Input() description?: string;\r\n\r\n  @Input() disableControl?: boolean;\r\n\r\n  @Input() enableIntermediate?: boolean;\r\n\r\n  @Input() disabled?: boolean;\r\n\r\n  @Output() changed = new EventEmitter<'empty' | 'checked' | 'mid'>();\r\n\r\n  onChange(): void {\r\n    if (!this.disableControl) {\r\n      // switch between states in order\r\n      let i = this.states.indexOf(this.state);\r\n      if (i == this.states.length - 1) {\r\n        this.state = this.states[0];\r\n      } else {\r\n        // if intermediate is not enabled then switch between 'checked' and 'empty' only\r\n        if (this.enableIntermediate) this.state = this.states[i + 1];\r\n        else this.state = this.states[this.states.length - 1];\r\n      }\r\n\r\n      // emit change\r\n      this.changed.emit(this.state);\r\n    }\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '/src/styles.scss';\r\n\r\n:host {\r\n  display: flex;\r\n  gap: 8px;\r\n}\r\n\r\n.checkbox {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: $radius_sm;\r\n  border: 1.5px solid $clr_neutral_500;\r\n  color: $clr_neutral_0;\r\n  background-color: $clr_neutral_0;\r\n  font-size: 14px;\r\n  transition: .2s ease-in;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  &.mid,\r\n  &.checked {\r\n    border-color: $clr_primary_700;\r\n    background-color: $clr_primary_700;\r\n  }\r\n\r\n  &.disabled {\r\n    color: $clr_neutral_400;\r\n    border-color: $clr_neutral_300;\r\n    background-color: $clr_neutral_100;\r\n    pointer-events: none;\r\n  }\r\n\r\n  &:focus {\r\n    box-shadow: 0 0 0 2px $clr_neutral_0, 0 0 0 4px $clr_primary_400;\r\n  }\r\n\r\n  &.has-label {\r\n    margin-top: 3px;\r\n  }\r\n}\r\n\r\n.txt-body {\r\n  color: $clr_neutral_900;\r\n}\r\n.txt-caption {\r\n  color: $clr_neutral_600;\r\n}\r\n\r\n",
+                    "styleUrl": "./checkbox.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<button class=\"checkbox {{disabled ? 'disabled' : state}}\" (click)=\"onChange()\"\n  [ngClass]=\"{'has-label': label}\">\n  <i\n    [class]=\"state == 'mid' ? 'si-minus' : state == 'checked' ? 'si-check-ii' : ''\">\n  </i>\n</button>\n\n<div class=\"info\">\n  <p class=\"txt-body\">{{ label }}</p>\n  <p class=\"txt-caption\">{{ description }}</p>\n</div>"
+        },
+        {
+            "name": "DropdownComponent",
+            "id": "component-DropdownComponent-f9ad352996253fa333311caae5b74c2d12b029f8874bfbf1f807f01cabc8297df6c0c920d6364e76ece9c3d54bb7bba98017abbddeab97a1f693b33e31a2212f",
+            "file": "src/app/modules/dropdown/component/dropdown.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "VALUE_ACCESSOR_CONFIG"
+                }
+            ],
+            "selector": "sr-dropdown",
+            "styleUrls": [
+                "./dropdown.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./dropdown.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "badgesLimit",
+                    "defaultValue": "3",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "customCssClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 54,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "data",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "IDropdownOption[]",
+                    "decorators": []
+                },
+                {
+                    "name": "defaultOptionText",
+                    "defaultValue": "'(Default)'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 70,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 72,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "disableSelectedIndicator",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 48,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "enableParentSearch",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 49,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "enableSearch",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "enableSelectAll",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "error",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 73,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "fixedPlaceholder",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "leadingIconClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 60,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "loadingText",
+                    "defaultValue": "'Loading ...'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 67,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "maxListItemsWithoutSearch",
+                    "defaultValue": "20",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "multiSelect",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "paginationThrottle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "'Select'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 66,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "searchNoResultText",
+                    "defaultValue": "'No results'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 71,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "searchPlaceholder",
+                    "defaultValue": "'Search'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 69,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "selectAllText",
+                    "defaultValue": "'All'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 68,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "trailingIconClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 61,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClose",
+                    "defaultValue": "new EventEmitter<IDropdownOption | IDropdownOption[]>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 79,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onDeSelect",
+                    "defaultValue": "new EventEmitter<IDropdownOption>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 77,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onScrolled",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 80,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onSearch",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 81,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "onSelect",
+                    "defaultValue": "new EventEmitter<IDropdownOption>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 76,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "_options",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IDropdownOption[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "filteredOptions",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IDropdownOption[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 86
+                },
+                {
+                    "name": "isDisabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 84
+                },
+                {
+                    "name": "isOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 87
+                },
+                {
+                    "name": "isThrottling",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 90
+                },
+                {
+                    "name": "isTouched",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 88
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 92
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 93
+                },
+                {
+                    "name": "searchText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 89
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 83
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "clearSearch",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 181,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "getIndex",
+                    "args": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 225,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleMultiSelect",
+                    "args": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 199,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleSingleSelect",
+                    "args": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 210,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "handleTouched",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 126,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "isOutsideViewport",
+                    "args": [
+                        {
+                            "name": "offset",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 251,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "offset",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "isScrolledToBottom",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 236,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "isSelected",
+                    "args": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 230,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 97,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onBadgeDeselect",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 217,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onMousedownFromOutside",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 132,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'document:click', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onOptionSelected",
+                    "args": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 192,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "o",
+                            "type": "IDropdownOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onScroll",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 149,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'scroll', ['$event']"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 116,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "onTouched",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 119,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "onTouched",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "search",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 175,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": true,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 122,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "throttlePagination",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 243,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "toggleDropdown",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 159,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "toggleSelectAll",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 186,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "whenListPositionIsOutsideViewport",
+                    "args": [
+                        {
+                            "name": "el",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 168,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "el",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 113,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "document:click",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 132
+                },
+                {
+                    "name": "scroll",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "argsDecorator": [
+                        "$event"
+                    ],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 149
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\r\n\tComponent,\r\n\tElementRef,\r\n\tEventEmitter,\r\n\tforwardRef,\r\n\tHostListener,\r\n\tInput,\r\n\tOutput,\r\n\tViewChild\r\n} from '@angular/core';\r\nimport { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';\r\nimport { OnInit } from '@angular/core';\r\nimport { IDropdownOption } from './../dropdown-option.model';\r\n\r\nconst VALUE_ACCESSOR_CONFIG = {\r\n\tprovide: NG_VALUE_ACCESSOR,\r\n\tuseExisting: forwardRef(() => DropdownComponent),\r\n\tmulti: true\r\n};\r\n\r\n@Component({\r\n\tselector: 'sr-dropdown',\r\n\ttemplateUrl: './dropdown.component.html',\r\n\tstyleUrls: ['./dropdown.component.scss'],\r\n\tproviders: [VALUE_ACCESSOR_CONFIG],\r\n\t// animations: [Animations.fadeSlideY, Animations.fade]\r\n})\r\nexport class DropdownComponent implements ControlValueAccessor, OnInit {\r\n\tprivate _options!: IDropdownOption[];\r\n\t/* *** Required *** */\r\n\t@Input('data') set options(value: IDropdownOption[]) {\r\n\t\tthis._options = value;\r\n\r\n\t\tif (!this.searchText) this.filteredOptions = value;\r\n\t\tif (!this.throttle) this.isThrottling = false;\r\n\t}\r\n\tget options(): IDropdownOption[] {\r\n\t\treturn this._options;\r\n\t}\r\n\t/* Optional [ Settings ] */\r\n\t@Input() badgesLimit: number = 3;\r\n\t@Input('maxListItemsWithoutSearch') maxWithoutSearch: number = 20; // when to enable search\r\n\t@Input('paginationThrottle') throttle?: number; // how much time [in milliseconds] to wait before next pagination\r\n\t@Input('multiSelect') isMulti?: boolean; // [ single or multi ]-select\r\n\t@Input('enableSearch') isSearchEnabled?: boolean; // enable search feature\r\n\t@Input('enableSelectAll') isSelectAllEnabled?: boolean; // enable select and deselect all\r\n\t@Input('fixedPlaceholder') isPlaceholderFixed?: boolean; // placeholder never changes when selecting options\r\n\t@Input('disableSelectedIndicator') isIndicatorDisabled?: boolean; // disable checkbox and radio-btn before each option\r\n\t@Input('enableParentSearch') isParentSearchEnabled?: boolean; // to search dynamically using http request from the parent\r\n\t/*\r\n\t ↓↓ use a custom css class to modify the styles in your platform ↓↓\r\n\t [ it's recommended to modify this class in the main styles.css file ]\r\n\t*/\r\n\t@Input('customCssClass') class: string = '';\r\n\t/*\r\n\t ↓↓ add a glyph icon before or after (or both) the placeholder ↓↓\r\n\t [ you can use fontAwesome or any other font-icon class\r\n\t\texample: 'fa fa-arrow-down' or 'si-chevron-down' ]\r\n\t*/\r\n\t@Input('leadingIconClass') leadingIcon?: string;\r\n\t@Input('trailingIconClass') trailingIcon?: string;\r\n\t/*\r\n\t\tText inputs, If you want to display custom or translated text ↓↓\r\n\t\tAll the text in this component can be passed dynamically using inputs ↓↓\r\n\t*/\r\n\t@Input() placeholder?: string = 'Select';\r\n\t@Input() loadingText?: string = 'Loading ...';\r\n\t@Input() selectAllText?: string = 'All';\r\n\t@Input() searchPlaceholder?: string = 'Search';\r\n\t@Input() defaultOptionText?: string = '(Default)';\r\n\t@Input('searchNoResultText') noResultText?: string = 'No results';\r\n\r\n\t// Outputs\r\n\t@Output() onSelect = new EventEmitter<IDropdownOption>();\r\n\t@Output() onDeSelect = new EventEmitter<IDropdownOption>();\r\n\t@Output()\r\n\tonClose = new EventEmitter<IDropdownOption | IDropdownOption[]>();\r\n\t@Output() onScrolled = new EventEmitter<boolean>();\r\n\t@Output() onSearch = new EventEmitter<string>();\r\n\r\n\tvalue: any = null;\r\n\tisDisabled = false;\r\n\r\n\tfilteredOptions!: IDropdownOption[]; // the options that being filtered by search\r\n\tisOpen = false; // to toggle dropdown list\r\n\tisTouched = false; // to handle on touched only once\r\n\tsearchText!: string;\r\n\tisThrottling!: boolean;\r\n\r\n\tonChange = (value: any) => {}; // to register value accessor method onChange\r\n\tonTouched = () => {}; // to register value accessor method onTouched\r\n\r\n\tconstructor(private eRef: ElementRef) {}\r\n\r\n\tngOnInit(): void {\r\n\t\t// init type of value to be able to handle selection\r\n\t\t// if multiSelect value will be an array\r\n\t\t// otherwise will be an object and as no option is selected, will be null\r\n\t\tthis.value = this.isMulti ? [] : null;\r\n\t}\r\n\r\n\t@ViewChild('uList') set onListOpen(listEl: any) {\r\n\t\t// when dropdown isOpen, check if its X is outside the viewport (left or right)\r\n\t\t// if true, just reverse the X position (inset-inline-start = unset, inset-inline-end = 0)\r\n\t\t// if you didn't get it, please check the position of .list class\r\n\t\tif (listEl)\r\n\t\t\tthis.whenListPositionIsOutsideViewport(listEl.nativeElement);\r\n\t}\r\n\r\n\t// Value Accessor Methods\r\n\twriteValue(value: any): void {\r\n\t\tif (value) this.value = value;\r\n\t}\r\n\tregisterOnChange(fn: any): void {\r\n\t\tthis.onChange = fn;\r\n\t}\r\n\tregisterOnTouched(onTouched: any): void {\r\n\t\tthis.onTouched = onTouched;\r\n\t}\r\n\tsetDisabledState?(isDisabled: boolean): void {\r\n\t\tthis.isDisabled = isDisabled;\r\n\t}\r\n\r\n\thandleTouched(): void {\r\n\t\tif (this.isTouched) this.onTouched();\r\n\t}\r\n\r\n\t// Listening to outer clicks\r\n\t@HostListener('document:click', ['$event'])\r\n\tonMousedownFromOutside(e: any): void {\r\n\t\tconst target = e.target;\r\n\t\tconst host = this.eRef.nativeElement.querySelector('.host');\r\n\t\tif (!host.contains(target)) {\r\n\t\t\tif (this.isOpen) {\r\n\t\t\t\te.stopImmediatePropagation();\r\n\t\t\t\te.preventDefault();\r\n\t\t\t\te.stopPropagation();\r\n\t\t\t\tthis.clearSearch();\r\n\t\t\t\tthis.isOpen = false;\r\n\t\t\t\tthis.handleTouched();\r\n\t\t\t\tthis.onClose.emit(this.value);\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n\t// listening to scroll event for pagination\r\n\t@HostListener('scroll', ['$event'])\r\n\tonScroll(event: any) {\r\n\t\tevent.stopPropagation();\r\n\t\tif (!this.isThrottling && !this.searchText)\r\n\t\t\tif (this.isScrolledToBottom(event)) {\r\n\t\t\t\tthis.onScrolled.emit(true);\r\n\t\t\t\tthis.throttlePagination();\r\n\t\t\t}\r\n\t}\r\n\r\n\t// Main Methods\r\n\ttoggleDropdown(): void {\r\n\t\tthis.isOpen = !this.isOpen;\r\n\t\tthis.isTouched = true;\r\n\t\tif (!this.isOpen) {\r\n\t\t\tthis.onTouched();\r\n\t\t\tthis.clearSearch();\r\n\t\t}\r\n\t}\r\n\r\n\twhenListPositionIsOutsideViewport(el: any): void {\r\n\t\tconst offset = el.getBoundingClientRect();\r\n\t\tif (this.isOutsideViewport(offset))\r\n\t\t\tel.classList.add('position_reverse');\r\n\t\telse el.classList.remove('position_reverse');\r\n\t}\r\n\r\n\tsearch(): void {\r\n\t\t// parent search enables [backend search using this $event]\r\n\t\t// use value to filter data async and just set data from parent to filtered\r\n\t\tif (this.isParentSearchEnabled) this.onSearch.emit(this.searchText);\r\n\t}\r\n\r\n\tclearSearch(): void {\r\n\t\tthis.searchText = '';\r\n\t\tthis.search();\r\n\t}\r\n\r\n\ttoggleSelectAll(): void {\r\n\t\tthis.value = this.isAllSelected ? [] : [...this.options];\r\n\t\tthis.onChange(this.value);\r\n\t\tthis.handleTouched();\r\n\t}\r\n\r\n\tonOptionSelected(o: IDropdownOption): void {\r\n\t\tif (this.isMulti) this.handleMultiSelect(o);\r\n\t\telse this.handleSingleSelect(o);\r\n\t\tthis.onChange(this.value);\r\n\t\tthis.handleTouched();\r\n\t}\r\n\r\n\thandleMultiSelect(o: IDropdownOption): void {\r\n\t\tif (this.isSelected(o)) {\r\n\t\t\tconst i = this.getIndex(o);\r\n\t\t\tthis.value.splice(i, 1);\r\n\t\t\tthis.onDeSelect.emit(o);\r\n\t\t} else {\r\n\t\t\tthis.value.push(o);\r\n\t\t\tthis.onSelect.emit(o);\r\n\t\t}\r\n\t}\r\n\r\n\thandleSingleSelect(o: IDropdownOption): void {\r\n\t\tthis.value = o;\r\n\t\tthis.isOpen = false;\r\n\t\tthis.clearSearch();\r\n\t\tthis.onSelect.emit(o);\r\n\t}\r\n\r\n\tonBadgeDeselect(e: MouseEvent, o: IDropdownOption): void {\r\n\t\te.stopPropagation();\r\n\t\tthis.onOptionSelected(o);\r\n\t\tthis.onDeSelect.emit(o);\r\n\t\tthis.handleTouched();\r\n\t}\r\n\r\n\t// Helper Methods\r\n\tgetIndex(o: IDropdownOption): number {\r\n\t\tconst found = this.value.find((opt: any) => opt.value === o.value);\r\n\t\treturn this.value.indexOf(found);\r\n\t}\r\n\r\n\tisSelected(o: IDropdownOption): boolean {\r\n\t\tif (this.isMulti)\r\n\t\t\treturn this.value?.some((opt: any) => opt.value === o.value);\r\n\t\telse return o.value === this.value?.value;\r\n\t}\r\n\r\n\tisScrolledToBottom(event: any): boolean {\r\n\t\tconst el: HTMLElement = event.target;\r\n\t\tconst pos = el.scrollTop + el.offsetHeight;\r\n\t\tconst max = el.scrollHeight;\r\n\t\treturn pos >= max - 1;\r\n\t}\r\n\r\n\tthrottlePagination(): void {\r\n\t\tthis.isThrottling = true;\r\n\t\tif (this.throttle)\r\n\t\t\tsetTimeout(() => {\r\n\t\t\t\tthis.isThrottling = false;\r\n\t\t\t}, this.throttle);\r\n\t}\r\n\r\n\tisOutsideViewport(offset: any): boolean {\r\n\t\treturn (\r\n\t\t\toffset.left < 0 ||\r\n\t\t\toffset.right > window.innerWidth ||\r\n\t\t\toffset.right > document.documentElement.clientWidth\r\n\t\t);\r\n\t}\r\n\r\n\t// Getters\r\n\tget isAllSelected(): boolean {\r\n\t\treturn this.value?.length == this.options?.length;\r\n\t}\r\n\tget isSearchable(): boolean | undefined {\r\n\t\tif (this.isParentSearchEnabled) return true;\r\n\t\telse\r\n\t\t\treturn (\r\n\t\t\t\tthis.isSearchEnabled &&\r\n\t\t\t\tthis.options?.length > this.maxWithoutSearch\r\n\t\t\t);\r\n\t}\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '/src/styles.scss';\r\n\r\n.host {\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  border-radius: 5px;\r\n  background-color: #fff;\r\n  border: 1px solid $clr_neutral_300;\r\n\r\n  &.selected_indicator {\r\n    border-color: #5044b8;\r\n    // transition: .2s ease-in;\r\n\r\n    &::before {\r\n      content: '✓';\r\n      z-index: 1;\r\n      background-color: #5044b8;\r\n      width: 16px;\r\n      height: 16px;\r\n      display: flex;\r\n      justify-content: center;\r\n      font-size: 12px;\r\n      line-height: 20px;\r\n      color: #fff;\r\n      font-weight: bold;\r\n      position: absolute;\r\n      inset-inline-start: 0;\r\n      top: 0;\r\n      border-radius: 0;\r\n      border-end-end-radius: 4px;\r\n      border-start-start-radius: 4px;\r\n    }\r\n\r\n    &.multi {\r\n      &::before {\r\n        content: attr(data-count);\r\n      }\r\n    }\r\n\r\n    .toggler {\r\n      padding-inline-start: 26px;\r\n    }\r\n  }\r\n\r\n  .toggler {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    column-gap: 10px;\r\n    width: 100%;\r\n    background-color: #fff;\r\n    border: none;\r\n    outline: none;\r\n    border-radius: 4px;\r\n    position: relative;\r\n    height: 40px;\r\n    padding: 0 12px;\r\n    cursor: pointer;\r\n    font-size: 16px;\r\n    line-height: 20px;\r\n\r\n    &.has-badges {\r\n      padding-inline-start: 4px;\r\n    }\r\n\r\n    .placeholder {\r\n      display: flex;\r\n      column-gap: 5px;\r\n    }\r\n\r\n    .badges {\r\n      display: flex;\r\n      justify-content: flex-start;\r\n      align-items: center;\r\n      column-gap: 4px;\r\n\r\n      .badge {\r\n        background: $clr_primary_50;\r\n        padding: 5px 12px;\r\n        border-radius: $radius_sm;\r\n        border: 1px solid $clr_primary_200;\r\n        color: $clr_primary_700;\r\n        display: flex;\r\n        justify-content: space-between;\r\n        height: 32px;\r\n        cursor: default;\r\n        font-size: 16px;\r\n        line-height: 16px;\r\n        column-gap: 4px;\r\n\r\n        &_text {\r\n          white-space: nowrap;\r\n          text-overflow: ellipsis;\r\n          overflow: hidden;\r\n          max-width: 90px;\r\n          color: $clr_primary_700;\r\n          line-height: 20px;\r\n        }\r\n\r\n        &_close {\r\n          cursor: pointer;\r\n          line-height: unset;\r\n          font-size: 16px;\r\n          font-weight: bold;\r\n          color: $clr_neutral_900;\r\n          line-height: 20px;\r\n        }\r\n      }\r\n    }\r\n\r\n    .arrow_down_icon {\r\n      position: relative;\r\n      width: 24px;\r\n      height: 24px;\r\n\r\n      &::before {\r\n        content: '';\r\n        position: absolute;\r\n        left: 4px;\r\n        width: 0;\r\n        height: 0;\r\n        border: 8px solid transparent;\r\n        border-top: 8px solid #231F20;\r\n        border-bottom: 0;\r\n        top: 8px;\r\n      }\r\n\r\n      &::after {\r\n        content: '';\r\n        position: absolute;\r\n        left: 4px;\r\n        width: 0;\r\n        height: 0;\r\n        border: 8px solid transparent;\r\n        border-top: 8px solid #fff;\r\n        border-bottom: 0;\r\n        top: 5px;\r\n      }\r\n    }\r\n  }\r\n\r\n  .overflow {\r\n    cursor: default !important;\r\n    display: none;\r\n\r\n    @media screen and (max-width: 767px) {\r\n      display: unset;\r\n      position: fixed;\r\n      top: 0;\r\n      bottom: 0;\r\n      right: 0;\r\n      left: 0;\r\n      background: rgb(0 0 0 / 75%);\r\n      z-index: 998;\r\n      backdrop-filter: blur(3px);\r\n    }\r\n  }\r\n\r\n  .list {\r\n    position: absolute;\r\n    background: #fff;\r\n    top: calc(100% + 8px);\r\n    inset-inline-start: 0;\r\n    z-index: 1;\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    border-radius: 5px;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2), 0px 2px 10px rgba(0, 0, 0, 0.1);\r\n    cursor: default;\r\n    border: 1px solid #E4E9F2;\r\n    box-sizing: border-box;\r\n    text-align: start;\r\n    width: max-content;\r\n    min-width: 100%;\r\n    overflow: hidden;\r\n\r\n    @media screen and (max-width: 768px) {\r\n      min-width: 90%;\r\n      width: 90%;\r\n      position: fixed;\r\n      top: 50%;\r\n      right: 5%;\r\n      transform: translateY(-50%);\r\n      font-size: 1rem;\r\n      box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);\r\n      z-index: 999;\r\n    }\r\n\r\n    &_content {\r\n      overflow-y: auto;\r\n      max-height: 300px;\r\n      width: 100%;\r\n      border-radius: 5px;\r\n      overscroll-behavior: contain;\r\n      gap: 4px;\r\n      display: flex;\r\n      flex-direction: column;\r\n      padding: 4px;\r\n    }\r\n\r\n    hr {\r\n      margin: 0;\r\n      border: none;\r\n      height: 1px;\r\n      background: $clr_neutral_300;\r\n    }\r\n\r\n    .search_section {\r\n      text-align: center;\r\n      padding: 0 10px;\r\n      text-align: center;\r\n      padding: 10px 10px 0;\r\n      position: sticky;\r\n      top: 0;\r\n      width: 100%;\r\n      background: white;\r\n\r\n      input {\r\n        border-radius: 5px;\r\n        padding: 6px 8px;\r\n        border: 1px solid #e4e9fd;\r\n        box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.05);\r\n        width: 100%;\r\n        margin: 0;\r\n      }\r\n\r\n      hr {\r\n        margin: 10px 0 5px;\r\n      }\r\n    }\r\n\r\n    .lite {\r\n      color: #9f9f9f;\r\n      font-weight: normal;\r\n    }\r\n\r\n    .item_selected {\r\n      color: #5044b8;\r\n    }\r\n\r\n    &_item {\r\n      // transition: 0.2s ease-in;\r\n      padding: 0 12px;\r\n      display: flex;\r\n      display: -webkit-flex;\r\n      justify-content: flex-start;\r\n      align-items: center;\r\n      column-gap: 8px;\r\n      cursor: pointer;\r\n      height: 40px;\r\n      border-radius: $radius_sm;\r\n\r\n      @media screen and (max-width: 768px) {\r\n        padding: 8px 20px;\r\n      }\r\n\r\n      &.select_all {\r\n        border-bottom: 1px solid #E4E9F2;\r\n      }\r\n\r\n      .radio-btn,\r\n      .check-box {\r\n        min-width: 14px;\r\n        min-height: 14px;\r\n        position: relative;\r\n        border-radius: 10px;\r\n        outline: 2px solid #e4e9f2;\r\n        // transition: .2s ease-in;\r\n        box-shadow: inset 0px 0px 1px 1px rgb(0 0 0 / 5%);\r\n\r\n        &::before {\r\n          content: \"\";\r\n          width: 100%;\r\n          height: 100%;\r\n          position: absolute;\r\n          top: 0;\r\n          left: 0;\r\n          border: 2px solid #fff;\r\n          border-radius: 50%;\r\n          // transition: .2s ease-in;\r\n        }\r\n      }\r\n\r\n      .check-box {\r\n        min-width: 18px;\r\n        min-height: 18px;\r\n        border-radius: 3px;\r\n\r\n        &::before {\r\n          border-radius: 4px;\r\n        }\r\n      }\r\n\r\n      .selected {\r\n        &::before {\r\n          background-color: #5044b8;\r\n        }\r\n      }\r\n\r\n      &:hover {\r\n        background-color: $clr_primary_50;\r\n\r\n        .check-box,\r\n        .radio-btn {\r\n          outline-color: #5044b8;\r\n        }\r\n      }\r\n\r\n      .default {\r\n        color: #9f9f9f;\r\n        font-weight: normal;\r\n      }\r\n\r\n      i {\r\n        margin-inline-start: auto;\r\n      }\r\n    }\r\n  }\r\n\r\n  .position_reverse {\r\n    inset-inline-start: unset;\r\n    inset-inline-end: 0;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./dropdown.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "eRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 93,
+                "jsdoctags": [
+                    {
+                        "name": "eRef",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "ControlValueAccessor",
+                "OnInit"
+            ],
+            "accessors": {
+                "options": {
+                    "name": "options",
+                    "setSignature": {
+                        "name": "options",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "IDropdownOption[]",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 31,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "IDropdownOption[]",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "options",
+                        "type": "[]",
+                        "returnType": "IDropdownOption[]",
+                        "line": 37
+                    }
+                },
+                "onListOpen": {
+                    "name": "onListOpen",
+                    "setSignature": {
+                        "name": "onListOpen",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "listEl",
+                                "type": "any",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 104,
+                        "jsdoctags": [
+                            {
+                                "name": "listEl",
+                                "type": "any",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "isAllSelected": {
+                    "name": "isAllSelected",
+                    "getSignature": {
+                        "name": "isAllSelected",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 260
+                    }
+                },
+                "isSearchable": {
+                    "name": "isSearchable",
+                    "getSignature": {
+                        "name": "isSearchable",
+                        "type": "",
+                        "returnType": "boolean | undefined",
+                        "line": 263
+                    }
+                }
+            },
+            "templateData": "<div class=\"host {{class}}\" [attr.data-count]=\"value?.length\"\r\n  [ngClass]=\"{'multi': value?.length, 'disabled': isDisabled, 'error': isError}\">\r\n  <ng-container *ngIf=\"!isMulti\">\r\n    <!-- Toggler -->\r\n    <button type=\"button\" class=\"toggler\" (click)=\"toggleDropdown()\" [disabled]=\"isDisabled\"\r\n      [ngClass]=\"{'focus': isOpen}\">\r\n      <span *ngIf=\"leadingIcon\" class=\"icon_before {{leadingIcon}}\"></span>\r\n      <span class=\"placeholder txt txt-body\" *ngIf=\"isPlaceholderFixed || !value?.value\"\r\n        [ngClass]=\"{'black': value?.value}\">{{ placeholder }}\r\n      </span>\r\n      <span class=\"placeholder_selected txt txt-body\" *ngIf=\"!isPlaceholderFixed && value?.value\">{{ value?.title }}</span>\r\n      <span class=\"icon_after {{trailingIcon || 'si-down'}}\" [ngClass]=\"{'flip-v': isOpen}\"></span>\r\n    </button>\r\n\r\n    <!-- List -->\r\n    <ng-container *ngIf=\"isOpen\">\r\n      <div  class=\"overflow\" (click)=\"toggleDropdown()\"></div>\r\n      <ul  class=\"list\" #uList>\r\n        <div class=\"list_content\" (scroll)=\"onScroll($event)\">\r\n          <div *ngIf=\"isSearchable\" class=\"search_section\">\r\n            <input type=\"text\" [(ngModel)]=\"searchText\" (ngModelChange)=\"search()\" [placeholder]=\"searchPlaceholder\">\r\n            <hr>\r\n          </div>\r\n          <ng-container *ngIf=\"value\">\r\n            <li class=\"list_item item_selected\">\r\n              <!-- <div *ngIf=\"!isIndicatorDisabled\" class=\"radio-btn selected\"></div> -->\r\n              <sr-radio *ngIf=\"!isIndicatorDisabled\" [disableControl]=\"true\" state=\"checked\"></sr-radio>\r\n              <p class=\"txt-body\">{{ value?.title }}</p>\r\n              <span *ngIf=\"value?.isDefault\" class=\"lite\">{{defaultOptionText}}</span>\r\n              <i *ngIf=\"value?.iconClass\" [class]=\"value?.iconClass\"></i>\r\n            </li>\r\n          <hr>\r\n          </ng-container>\r\n          <ng-container *ngFor=\"let option of !isParentSearchEnabled ? (options | search:searchText) : options\">\r\n            <li *ngIf=\"!isSelected(option)\" class=\"list_item\"(click)=\"onOptionSelected(option)\">\r\n              <!-- <div *ngIf=\"!isIndicatorDisabled\" class=\"radio-btn\"></div> -->\r\n              <sr-radio *ngIf=\"!isIndicatorDisabled\" [disableControl]=\"true\"></sr-radio>\r\n              <p class=\"txt-body\">{{ option?.title }}</p>\r\n              <span *ngIf=\"option?.isDefault\" class=\"lite\">{{defaultOptionText}}</span>\r\n              <i *ngIf=\"option?.iconClass\" [class]=\"option?.iconClass\"></i>\r\n            </li>\r\n          </ng-container>\r\n          <ng-container *ngIf=\"!options || !options?.length || !(options | search:searchText).length\">\r\n            <li *ngIf=\"!options || (!options?.length && !searchText)\" class=\"list_item\" style=\"cursor: default;\">\r\n              <p class=\"txt-body\">{{ loadingText }}</p>\r\n            </li>\r\n            <li *ngIf=\"searchText && (!options?.length || !(options | search:searchText).length)\" class=\"list_item\" style=\"cursor: default;\">\r\n              <p class=\"txt-body\">{{ noResultText }}</p>\r\n            </li>\r\n          </ng-container>\r\n        </div>\r\n      </ul>\r\n    </ng-container>\r\n  </ng-container>\r\n\r\n  <!-- ------------------------------------------------------ -->\r\n  <!-- ---- [ ↑ Single select ↑ ] - [ ↓ Multi select ↓ ] ---- -->\r\n  <!-- ------------------------------------------------------ -->\r\n\r\n  <ng-container *ngIf=\"isMulti\">\r\n    <!-- Toggler -->\r\n    <button type=\"button\" class=\"toggler\" (click)=\"toggleDropdown()\" [disabled]=\"isDisabled\"\r\n      [ngClass]=\"{'has-badges': !isPlaceholderFixed && value?.length}\">\r\n      <span *ngIf=\"leadingIcon\" class=\"icon_before {{leadingIcon}}\"></span>\r\n      <span class=\"placeholder txt txt-body\" [ngClass]=\"{'black': value?.length}\" \r\n        *ngIf=\"(options && options.length) && (isPlaceholderFixed || !value?.length)\">{{ placeholder }}\r\n      </span>\r\n      <span class=\"placeholder txt txt-body\" *ngIf=\"!options || !options.length\">{{ loadingText }}</span>\r\n      <div class=\"badges\" *ngIf=\"isMulti && !isPlaceholderFixed && value?.length\">\r\n        <ng-container *ngFor=\"let option of value; let i = index\">\r\n          <sr-tag \r\n            *ngIf=\"i < badgesLimit\" \r\n            [title]=\"option?.title\"\r\n            (onClose)=\"onBadgeDeselect($event, option)\">\r\n          </sr-tag>\r\n        </ng-container>\r\n        <p class=\"txt-body\" *ngIf=\"value?.length > badgesLimit\">+{{ value?.length - badgesLimit }}</p>\r\n      </div>\r\n      <span class=\"icon_after {{trailingIcon || 'si-down'}}\" [ngClass]=\"{'flip-v': isOpen}\"></span>\r\n    </button>\r\n\r\n    <!-- List -->\r\n    <ng-container *ngIf=\"isOpen\">\r\n      <div  class=\"overflow\" (click)=\"toggleDropdown()\"></div>\r\n      <ul  class=\"list\" #uList>\r\n        <div class=\"list_content\" (scroll)=\"onScroll($event)\">\r\n          <div *ngIf=\"isSearchable\" class=\"search_section\">\r\n            <input type=\"text\" [(ngModel)]=\"searchText\" (ngModelChange)=\"search()\" [placeholder]=\"searchPlaceholder\">\r\n            <hr>\r\n          </div>\r\n          <li *ngIf=\"isSelectAllEnabled && !searchText\" class=\"list_item\" [ngClass]=\"{'item_selected': isAllSelected}\"\r\n            (click)=\"toggleSelectAll()\">\r\n            <sr-checkbox *ngIf=\"!isIndicatorDisabled\" [state]=\"isAllSelected ? 'checked' : 'empty'\"></sr-checkbox>\r\n            <p class=\"txt-body\">{{ selectAllText }}</p>\r\n          </li>\r\n          <ng-container *ngIf=\"value?.length\">\r\n            <li *ngFor=\"let option of value\" class=\"list_item item_selected\" (click)=\"onOptionSelected(option)\">\r\n              <sr-checkbox *ngIf=\"!isIndicatorDisabled\" state=\"checked\"></sr-checkbox>\r\n              <p class=\"txt-body\">{{ option?.title }}</p>\r\n              <i *ngIf=\"option?.iconClass\" [class]=\"option?.iconClass\"></i>\r\n            </li>\r\n            <hr *ngIf=\"!(value?.length == options?.length)\">\r\n          </ng-container>\r\n          <ng-container *ngFor=\"let option of !isParentSearchEnabled ? (options | search:searchText) : options\">\r\n            <li *ngIf=\"!isSelected(option)\" class=\"list_item\" [ngClass]=\"{'item_selected': isSelected(option)}\" (click)=\"onOptionSelected(option)\">\r\n              <sr-checkbox *ngIf=\"!isIndicatorDisabled\" [state]=\"isSelected(option) ? 'checked' : 'empty'\"></sr-checkbox>\r\n              <p class=\"txt-body\">{{ option?.title }}</p>\r\n              <i *ngIf=\"option?.iconClass\" [class]=\"option?.iconClass\"></i>\r\n            </li>\r\n          </ng-container>\r\n          <ng-container *ngIf=\"!options || !options?.length || !(options | search:searchText).length\">\r\n            <li *ngIf=\"!options || (!options?.length && !searchText)\" class=\"list_item\" style=\"cursor: default;\">\r\n              <p class=\"txt-body\">{{ loadingText }}</p>\r\n            </li>\r\n            <li *ngIf=\"searchText && (!options?.length || !(options | search:searchText).length)\" class=\"list_item\" style=\"cursor: default;\">\r\n              <p class=\"txt-body\">{{ noResultText }}</p>\r\n            </li>\r\n          </ng-container>\r\n        </div>\r\n      </ul>\r\n    </ng-container>\r\n  </ng-container>\r\n</div>\r\n\r\n<div *ngIf=\"description\" class=\"description\" [ngClass]=\"{'error': isError}\">\r\n  <i class=\"si-info\"></i>\r\n  <p class=\"txt-caption\">{{ description }}</p>\r\n</div>"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-db8643629f6d6e82ee5f1a876f92ea0ae3c919e9864325d7d350748c6482c375dde0eb930f345b75ba39d5ad98abcebeccbc824490fcb90745a6334b71d94b38",
+            "file": "src/app/modules/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sr-input",
+            "styleUrls": [
+                "./input.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "appearance",
+                    "defaultValue": "'default'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "\"default\" | \"prefix\" | \"suffix\" | \"icon\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 48,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "error",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "hintIcon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "hintText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "iconClass",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "iconPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "inputFocusClass",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "optional",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "placeHolder",
+                    "defaultValue": "'placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 51,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "txtWithInput",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "value",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 54,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "inputValue",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'sr-input',\r\n  templateUrl: './input.component.html',\r\n  styleUrls: ['./input.component.scss']\r\n})\r\nexport class InputComponent {\r\n\r\n\t// @ Input Focus @ //\r\n\t@Input() inputFocusClass = false;\r\n\r\n  \t// Input label //\r\n\t@Input() label!: string;\r\n\r\n\t// @ Input Style @ //\r\n\t@Input() appearance:\r\n\t\t| 'default'\r\n\t\t| 'prefix'\r\n\t\t| 'suffix'\r\n\t\t| 'icon' = 'default';\r\n\r\n\t// @ Input icon class [ font-icon ] @ //\r\n\t@Input() iconClass?: string;\r\n\r\n\t// @ Input optional OR required @ //\r\n\t@Input() optional?: boolean;\r\n\r\n\t// @ Input Hint Text @ //\r\n\t@Input() hintText?: string;\r\n\r\n\t// @ Input Hint Icon @ //\r\n\t@Input() hintIcon?: string;\r\n\r\n\t// @ Input icon Position (ledt or right) @ //\r\n\t@Input() iconPosition?: string;\r\n\r\n\t// @ Input Type (text , Number etc .. ) @ //\r\n\t@Input() type?: string = 'text';\r\n\r\n\t// @ Input text for prefix and suffix like (SAR) @ //\r\n\t@Input() txtWithInput?: string;\r\n\r\n\t// @ Input error @ //\r\n\t@Input() error?: boolean;\r\n\r\n\t// @ Input disabled @ //\r\n\t@Input() disabled?: boolean = false;\r\n\r\n\t// @ Input Placeholder @ //\r\n\t@Input() placeHolder?: string = 'placeholder';\r\n\t\r\n\t// @ Input Value @ //\r\n\t@Output() value = new EventEmitter();\r\n\r\n\tinputValue(e:any) {\r\n\t\tthis.value.emit(e.target.value)\r\n\t}\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"/src/styles.scss\";\r\n\r\n.input{\r\n   height: 40px;\r\n   min-width: 410px;\r\n   border: 1px solid $clr_neutral_300;\r\n   border-radius: $radius_sm;\r\n   overflow: hidden;\r\n   background: $clr_neutral_0;\r\n   position: relative;\r\n   display: flex;\r\n   box-sizing: border-box;\r\n   align-items: center;\r\n   input{\r\n       height: 100%;\r\n       padding: 7px 12px;\r\n       width: 100%;\r\n       background: transparent;\r\n       line-height: $line_height_24;\r\n       font-size: $font_size_16;\r\n       border:0px;\r\n       outline: none;\r\n       box-sizing: border-box;\r\n       color: $clr_neutral_900;\r\n       &::placeholder{\r\n            color: $clr_neutral_400;\r\n        }\r\n   } \r\n   \r\n   input[type=number]{\r\n       padding-right: 0px;\r\n       &::-webkit-inner-spin-button , &::-webkit-outer-spin-button{\r\n            opacity: 1;\r\n            padding: 20px 5px;   \r\n            box-shadow: inset 1px 0px 0px $clr_neutral_300, 0px 1px 0px $clr_neutral_300;\r\n       }\r\n   }\r\n   i{\r\n       display: none;\r\n   }\r\n   span{\r\n       display: none;\r\n   }\r\n   \r\n   &.icon{\r\n        i{\r\n            padding-right: 12px;\r\n            display: flex;\r\n        }\r\n   }\r\n   &.icon-left{\r\n        flex-direction: row-reverse;\r\n        padding-right: 12px;\r\n        i{\r\n            padding-right: 0px;\r\n            padding-left: 12px;\r\n        }\r\n    }\r\n    &.prefix{\r\n        span{\r\n            display: flex;\r\n            height: 100%;\r\n            background: $clr_neutral_50;\r\n            box-shadow: inset 1px 0px 0px #C0C0CF;\r\n            color: $clr_neutral_600;\r\n            line-height: $line_height_24;\r\n            font-size: $font_size_16;\r\n            display: flex;\r\n            align-items: center;\r\n            padding: 0px 12px;\r\n            text-transform: uppercase;\r\n        }\r\n    }\r\n    &.suffix{\r\n        flex-direction: row-reverse;\r\n        span{\r\n            display: flex;\r\n            height: 100%;\r\n            background: $clr_neutral_50;\r\n            box-shadow: inset -1px 0px 0px #C0C0CF;\r\n            color: $clr_neutral_600;\r\n            line-height: $line_height_24;\r\n            font-size: $font_size_16;\r\n            display: flex;\r\n            align-items: center;\r\n            padding: 0px 12px;\r\n            text-transform: uppercase;\r\n\r\n        }\r\n    }\r\n    &.error{\r\n        background: $clr_danger_50;\r\n        border-color:$clr_danger_700;\r\n        &.suffix ,  &.prefix{\r\n            span{\r\n                background: $clr_danger_50;\r\n                color: $clr_danger_900;\r\n            }\r\n        }\r\n        &.suffix {\r\n            span{\r\n                box-shadow: inset -1px 0px 0px $clr_danger_900;\r\n            }\r\n        }\r\n        &.prefix{\r\n            span{\r\n                box-shadow: inset 1px 0px 0px $clr_danger_900;\r\n            }\r\n        }\r\n    }\r\n    &.disabled{\r\n        background: $clr_neutral_50;\r\n    }\r\n    &.focus {\r\n        box-shadow: 0 0 0 2px $clr_neutral_0, 0 0 0 4px $clr_primary_400;\r\n    }\r\n}\r\n.label-widget{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    span{\r\n        color: $clr_neutral_500;\r\n    }\r\n}\r\n\r\n.hint{\r\n    display: flex;\r\n    align-items: center;\r\n    margin-top: 3px;\r\n    color: $clr_neutral_500;\r\n    i{\r\n        margin-right: 4px;\r\n    }\r\n}\r\n.input.error + .hint{\r\n    color: $clr_danger_700;\r\n    i{\r\n        color: $clr_danger_900; \r\n    }\r\n}",
+                    "styleUrl": "./input.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<div class=\"label-widget\" *ngIf=\"optional || label\">\r\n    <h3 class=\"txt txt-body\">{{label}}</h3>\r\n    <span class=\"txt txt-body\" *ngIf=\"optional\">Optional</span>\r\n</div>\r\n<div class=\"input {{appearance}} \" [ngClass]=\"{\r\n    'icon-left': (iconPosition =='left' &&  appearance == 'icon'),\r\n    'error' : error == true,\r\n    'disabled' : disabled == true,\r\n    'focus' : inputFocusClass == true\r\n}\">\r\n    <input placeholder=\"{{placeHolder}}\" type=\"{{type}}\" [disabled]=\"disabled\"  (focus)=\"inputFocusClass = true\"  (blur)=\"inputFocusClass = false; null\" (change)=\"inputValue($event)\" />\r\n    <i *ngIf=\"iconClass\" class=\"icon {{iconClass}} \"></i>\r\n    <span *ngIf=\"((appearance == 'suffix' || 'prefix') && (txtWithInput)) \">{{txtWithInput}}</span>\r\n</div>\r\n<div class=\"hint\" *ngIf=\"hintIcon && hintText\">\r\n    <i class=\"{{hintIcon}}\"></i>\r\n    <p class=\"txt txt-caption\">{{hintText}}</p>\r\n</div>\r\n\r\n\r\n\r\n\r\n"
+        },
+        {
+            "name": "RadioButtonComponent",
+            "id": "component-RadioButtonComponent-79f739b6565ab08b90d753768c4adac6fab928dc004ee99f699cb29d444dce22e64b7660f9d7fbbe1bd437e64d1a5e78902fd957f2c6123333fdb26acb30a543",
+            "file": "src/app/modules/radio-button/radio-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sr-radio",
+            "styleUrls": [
+                "./radio-button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./radio-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "disableControl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "state",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string | \"checked\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "changed",
+                    "defaultValue": "new EventEmitter<'' | 'checked'>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onChange",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'sr-radio',\n  templateUrl: './radio-button.component.html',\n  styleUrls: ['./radio-button.component.scss']\n})\nexport class RadioButtonComponent {\n  // these types are givin to shut the tslint up!\n\n  @Input() state: '' | 'checked' = '';\n\n  @Input() label?: string;\n\n  @Input() description?: string;\n\n  @Input() disableControl?: boolean;\n\n  @Input() disabled?: boolean;\n\n  @Output() changed = new EventEmitter<'' | 'checked'>();\n\n  onChange(): void {\n    if (!this.disableControl) {\n      // switch between states in order\n      if (this.state === '') this.state = 'checked'\n      else this.state = ''\n    }\n    // emit change\n    this.changed.emit(this.state);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '/src/styles.scss';\r\n\r\n:host {\r\n  display: flex;\r\n  gap: 8px;\r\n}\r\n\r\n.radio {\r\n  width: 20px;\r\n  height: 20px;\r\n  border-radius: 20px;\r\n  border: 1.5px solid $clr_neutral_500;\r\n  color: $clr_neutral_0;\r\n  background-color: $clr_neutral_0;\r\n  font-size: 14px;\r\n  transition: .2s ease-in;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n\r\n  &.disabled {\r\n    color: $clr_neutral_100;\r\n    border-color: $clr_neutral_300;\r\n    background-color: $clr_neutral_100;\r\n    pointer-events: none;\r\n  }\r\n\r\n  &.checked {\r\n    border-color: $clr_primary_700;\r\n    background-color: $clr_primary_700;\r\n\r\n    &.disabled {\r\n      color: $clr_neutral_400;\r\n      border-color: $clr_neutral_300;\r\n      background-color: $clr_neutral_100;\r\n      pointer-events: none;\r\n    }\r\n  }\r\n\r\n\r\n  &:focus {\r\n    box-shadow: 0 0 0 2px $clr_neutral_0, 0 0 0 4px $clr_primary_400;\r\n  }\r\n  \r\n  &.has-label {\r\n    margin-top: 3px;\r\n  }\r\n  \r\n  i {\r\n    margin-top: 1px;\r\n  }\r\n}\r\n\r\n.txt-body {\r\n  color: $clr_neutral_900;\r\n}\r\n\r\n.txt-caption {\r\n  color: $clr_neutral_600;\r\n}\r\n",
+                    "styleUrl": "./radio-button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<button class=\"radio {{state}}\" (click)=\"onChange()\"\n  [ngClass]=\"{'has-label': label, 'disabled': disabled}\">\n  <i class=\"si-null\"></i>\n</button>\n\n<div class=\"info\">\n  <p class=\"txt-body\" (click)=\"onChange()\">{{ label }}</p>\n  <p class=\"txt-caption\">{{ description }}</p>\n</div>"
+        },
+        {
+            "name": "TagComponent",
+            "id": "component-TagComponent-7a83e0671dfb90c02c0cc11ec01b9115abe57da5d039ea699fd563c8d6033a73238e09bb41fea525de11cd1bce9cad4e7f7f1c8be4ec2ba423fd7ab810ece51a",
+            "file": "src/app/modules/tag/tag.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sr-tag",
+            "styleUrls": [
+                "./tag.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./tag.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "readonly",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClose",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "EventEmitter<any>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onTagClose",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';\n\n@Component({\n  selector: 'sr-tag',\n  templateUrl: './tag.component.html',\n  styleUrls: ['./tag.component.scss']\n})\nexport class TagComponent {\n\n  @Input() title!: string;\n\n  @Input() readonly!: boolean;\n\n  @Output() onClose: EventEmitter<any> = new EventEmitter()\n\n  onTagClose(e: MouseEvent): void {\n    this.onClose.emit(e)\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import '/src/styles.scss';\r\n\r\n.tag {\r\n  background: $clr_primary_50;\r\n  padding: 5px 12px;\r\n  border-radius: $radius_sm;\r\n  border: 1px solid $clr_primary_200;\r\n  color: $clr_primary_700;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  height: 32px;\r\n  cursor: default;\r\n  column-gap: 4px;\r\n\r\n  &_text {\r\n    white-space: nowrap;\r\n    text-overflow: ellipsis;\r\n    overflow: hidden;\r\n    max-width: 90px;\r\n    color: $clr_primary_700;\r\n  }\r\n\r\n  &_close {\r\n    cursor: pointer;\r\n    line-height: unset;\r\n    font-size: 16px;\r\n    font-weight: bold;\r\n    color: $clr_neutral_900;\r\n    line-height: 20px;\r\n  }\r\n\r\n  .vertical-line {\r\n    height: 16px;\r\n    width: 1px;\r\n    border-radius: 2px;\r\n    background-color: $clr_primary_200;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./tag.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<span class=\"tag\" [title]=\"title\">\n  <span class=\"tag_text txt txt-body\">{{ title }}</span>\n  <ng-container *ngIf=\"!readonly\">\n    <div class=\"vertical-line\"></div>\n    <span\n      class=\"si-close tag_close\"\n      (click)=\"onTagClose($event)\"\n    ></span>\n  </ng-container>\n</span>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-b189db932b9db62ee7fd542e7112acc0dee76f0fbc1a54fb18fc59254103903d885c765f1bdc9eda2b2125b42d3f661b7680974316914f1770ecc45d8352b5d6",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppComponent } from './app.component';\r\nimport { ButtonModule } from './modules/button/button.module';\r\nimport { CheckboxModule } from './modules/checkbox/checkbox.module';\r\nimport { DropdownModule } from './modules/dropdown/dropdown.module';\r\nimport { RadioButtonModule } from './modules/radio-button/radio-button.module';\r\nimport { TagModule } from './modules/tag/tag.module';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n  ],\r\n  imports: [\r\n    FormsModule,\r\n    BrowserModule,\r\n    ButtonModule,\r\n    DropdownModule,\r\n    CheckboxModule,\r\n    TagModule,\r\n    RadioButtonModule\r\n  ],\r\n  providers: [],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "ButtonModule"
+                        },
+                        {
+                            "name": "CheckboxModule"
+                        },
+                        {
+                            "name": "DropdownModule"
+                        },
+                        {
+                            "name": "RadioButtonModule"
+                        },
+                        {
+                            "name": "TagModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ButtonModule",
+            "id": "module-ButtonModule-f8f3fcadd72e0dd07d5ae26a99de6f3b881521cab614c6f9472cb1617323dcadf57df234144f5d55f2ea843944c6ec303d267e0a4e82f073ba6d55e8c9bd9e0d",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/modules/button/button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ButtonComponent } from './component/button.component';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [ButtonComponent],\r\n  imports: [\r\n    CommonModule\r\n  ],\r\n  exports: [ButtonComponent]\r\n})\r\nexport class ButtonModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "CheckboxModule",
+            "id": "module-CheckboxModule-e697d94591c83ea792b247db0b009ade17044c074372b957addf22657a5cf96fed5de8f5da07d883720aa286efdeb5f86d4e792c241733b8acbe383632ecbade",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/modules/checkbox/checkbox.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { CheckboxComponent } from './checkbox.component';\n\n\n\n@NgModule({\n  declarations: [\n    CheckboxComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    CheckboxComponent\n  ]\n})\nexport class CheckboxModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "CheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "CheckboxComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "DropdownModule",
+            "id": "module-DropdownModule-0cf445c76c83fe7ffe99a706e54d4ffb3b1d7a97dd448fdba6af68d1fa85c78781b2a3702d2c1fb0dc047dd6f82b3b2dd963ee50a271515450555ce9e1a91853",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/modules/dropdown/dropdown.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { DropdownComponent } from './dropdown.component';\r\nimport { SearchPipe } from './search.pipe';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    DropdownComponent,\r\n    SearchPipe\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule\r\n  ],\r\n  exports: [DropdownComponent, SearchPipe]\r\n})\r\nexport class DropdownModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "DropdownComponent"
+                        },
+                        {
+                            "name": "SearchPipe"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "CheckboxModule"
+                        },
+                        {
+                            "name": "RadioButtonModule"
+                        },
+                        {
+                            "name": "TagModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "DropdownComponent"
+                        },
+                        {
+                            "name": "SearchPipe"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "InputModule",
+            "id": "module-InputModule-4b5ecd8b987933ee5eace555be9e052fe446be589bbeabd95d2a9921e6af765fe4b470f04f96739202c7189bb0ca9c6f6bc13c20c5d58957794ab757ae2ecba5",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/modules/input/input.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { InputComponent } from './input.component';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\n\r\n\r\n@NgModule({\r\n  declarations: [\r\n    InputComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule\r\n  ],\r\n  exports: [InputComponent]\r\n})\r\nexport class InputModule { }\r\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "InputComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "RadioButtonModule",
+            "id": "module-RadioButtonModule-7180d2e0a5d1560360a22388bd35c043d662030b2cc742d6a00aa1d82041ebf6d564bcad7ee092b12948fcd997b1699a18152bc9a6137769ee2aa18a8dd36cdc",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/modules/radio-button/radio-button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RadioButtonComponent } from './radio-button.component';\n\n\n\n@NgModule({\n  declarations: [\n    RadioButtonComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    RadioButtonComponent\n  ]\n})\nexport class RadioButtonModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "RadioButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "RadioButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TagModule",
+            "id": "module-TagModule-a536eba600dfca9f0becee424070a9c4629bf501714cab07272c0d67030ac0d41012ebe39bf6fc3295fa758b07848b71fec3b3e4f12b47daa2e891b450195e8b",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/modules/tag/tag.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TagComponent } from './tag.component';\n\n\n\n@NgModule({\n  declarations: [\n    TagComponent\n  ],\n  imports: [\n    CommonModule\n  ],\n  exports: [\n    TagComponent\n  ]\n})\nexport class TagModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TagComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TagComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n    multiSelect: true,\r\n  },\r\n})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n  },\r\n})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Destructive",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n    isDisabled: true,\r\n    description: \"This is disabled, in case you didn't notice already.\"\r\n  },\r\n  template: '<sr-dropdown [data]=\"data\" [disabled]=\"isDisabled\" [description]=\"description\"></sr-dropdown>'\r\n})"
+            },
+            {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "dropdownOptions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n  { title: 'Arabic', value: 1 },\r\n  { title: 'English', value: 2 },\r\n  { title: 'Spanish', value: 3 },\r\n  { title: 'French', value: 4 },\r\n  { title: 'خط عربي', value: 5 },\r\n]"
+            },
+            {
+                "name": "dropdownOptions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n  { title: 'Arabic', value: 1 },\r\n  { title: 'English', value: 2 },\r\n  { title: 'Spanish', value: 3 },\r\n  { title: 'French', value: 4 },\r\n  { title: 'Something Else', value: 5 },\r\n]"
+            },
+            {
+                "name": "dropdownOptionsWithIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "[\r\n  { title: 'Arabic', value: 1, iconClass: 'si-check' },\r\n  { title: 'English', value: 2, iconClass: 'si-check' },\r\n  { title: 'Spanish', value: 3, iconClass: 'si-check' },\r\n  { title: 'French', value: 4, iconClass: 'si-check' },\r\n  { title: 'Something Else', value: 5, iconClass: 'si-check' },\r\n]"
+            },
+            {
+                "name": "dropdownOptionsWithIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "any",
+                "defaultValue": "[\r\n  { title: 'Arabic', value: 1, iconClass: 'si-check' },\r\n  { title: 'English', value: 2, iconClass: 'si-check' },\r\n  { title: 'Spanish', value: 3, iconClass: 'si-check' },\r\n  { title: 'French', value: 4, iconClass: 'si-check' },\r\n  { title: 'Something Else', value: 5, iconClass: 'si-check' },\r\n]"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  production: true\r\n}"
+            },
+            {
+                "name": "Error",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n    isError: true,\r\n    description: \"Here's an error, watchout\"\r\n  },\r\n  template: '<sr-dropdown [data]=\"data\" [error]=\"isError\" [description]=\"description\"></sr-dropdown>'\r\n})"
+            },
+            {
+                "name": "Error",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "FixedPlaceholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n    multiSelect: true,\r\n    fixedPlaceholder: true,\r\n    placeholder: 'Placeholder wont change upon selection',\r\n  },\r\n})"
+            },
+            {
+                "name": "FixedPlaceholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n    multiSelect: true,\r\n    fixedPlaceholder: true,\r\n    placeholder: 'Placeholder wont change upon selection'\r\n  }\r\n})"
+            },
+            {
+                "name": "FixedPlaceholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptions,\r\n    fixedPlaceholder: true,\r\n    placeholder: 'Placeholder wont change upon selection'\r\n  }\r\n})"
+            },
+            {
+                "name": "Focus",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Grouped",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n\tprops: args,\r\n\ttemplate: `\r\n\t\t<div class=\"btn-group\">\r\n\t\t\t<ng-container *ngFor=\"let btn of groupData; let first = first; let last = last\">\r\n\t\t\t\t<sr-button \r\n\t\t\t\t\t[grouped]=\"grouped\" \r\n\t\t\t\t\t[label]=\"btn.label\" \r\n\t\t\t\t\t[size]=\"size\"\r\n\t\t\t\t\t[iconClass]=\"btn.iconClass || ''\" \r\n\t\t\t\t\t[loading]=\"btn.loading\"\r\n\t\t\t\t\t[trailingIcon]=\"btn.trailingIcon\"\r\n\t\t\t\t\t[orderInGroup]=\"first ? 'first' : last ? 'last' : ''\">\r\n\t\t\t\t</sr-button>\r\n\t\t\t</ng-container>\r\n\t\t</div>\r\n\t`\r\n})"
+            },
+            {
+                "name": "Hint",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Icon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "IconLeft",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "IconRight",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Label",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "LeadingIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Medium",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "NoIndicators",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptionsWithIcons,\r\n    value: [dropdownOptionsWithIcons[0], dropdownOptionsWithIcons[1]],\r\n    multiSelect: true,\r\n    disableSelectedIndicator: true\r\n  }\r\n})"
+            },
+            {
+                "name": "NoIndicators",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptionsWithIcons,\r\n    value: dropdownOptionsWithIcons[0],\r\n    disableSelectedIndicator: true\r\n  }\r\n})"
+            },
+            {
+                "name": "OptionsWithIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptionsWithIcons,\r\n    value: [dropdownOptionsWithIcons[0], dropdownOptionsWithIcons[1]],\r\n    multiSelect: true\r\n  }\r\n})"
+            },
+            {
+                "name": "OptionsWithIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<any>",
+                "defaultValue": "(args: any) => ({\r\n  props: {\r\n    data: dropdownOptionsWithIcons,\r\n    value: dropdownOptionsWithIcons[2]\r\n  }\r\n})"
+            },
+            {
+                "name": "Placeholder",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Prefix",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Stepper",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\r\n\tprops: args\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\r\n\tprops: args\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\r\n\tprops: args\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<InputComponent>",
+                "defaultValue": "(args: InputComponent) => ({\r\n\tprops: args\r\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<InputComponent>",
+                "defaultValue": "(args: InputComponent) => ({\r\n\tprops: args\r\n})"
+            },
+            {
+                "name": "Tertiary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Text",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "TrailingIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "VALUE_ACCESSOR_CONFIG",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/modules/dropdown/component/dropdown.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n\tprovide: NG_VALUE_ACCESSOR,\r\n\tuseExisting: forwardRef(() => DropdownComponent),\r\n\tmulti: true\r\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "src/app/modules/button/stories/Button.appearance.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Focus",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Placeholder",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/Layout/Input/Input.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<InputComponent>",
+                    "defaultValue": "(args: InputComponent) => ({\r\n\tprops: args\r\n})"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: false\r\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: true\r\n}"
+                }
+            ],
+            "src/stories/Layout/Button/Button.state.stories.ts": [
+                {
+                    "name": "Grouped",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<any>",
+                    "defaultValue": "(args: any) => ({\r\n\tprops: args,\r\n\ttemplate: `\r\n\t\t<div class=\"btn-group\">\r\n\t\t\t<ng-container *ngFor=\"let btn of groupData; let first = first; let last = last\">\r\n\t\t\t\t<sr-button \r\n\t\t\t\t\t[grouped]=\"grouped\" \r\n\t\t\t\t\t[label]=\"btn.label\" \r\n\t\t\t\t\t[size]=\"size\"\r\n\t\t\t\t\t[iconClass]=\"btn.iconClass || ''\" \r\n\t\t\t\t\t[loading]=\"btn.loading\"\r\n\t\t\t\t\t[trailingIcon]=\"btn.trailingIcon\"\r\n\t\t\t\t\t[orderInGroup]=\"first ? 'first' : last ? 'last' : ''\">\r\n\t\t\t\t</sr-button>\r\n\t\t\t</ng-container>\r\n\t\t</div>\r\n\t`\r\n})"
+                },
+                {
+                    "name": "LeadingIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\r\n\tprops: args\r\n})"
+                },
+                {
+                    "name": "TrailingIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.state.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/app/modules/button/stories/Button.size.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Medium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/button/stories/Button.size.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\r\n\tprops: args\r\n})"
+                }
+            ],
+            "src/app/modules/dropdown/component/dropdown.component.ts": [
+                {
+                    "name": "VALUE_ACCESSOR_CONFIG",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/modules/dropdown/component/dropdown.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n\tprovide: NG_VALUE_ACCESSOR,\r\n\tuseExisting: forwardRef(() => DropdownComponent),\r\n\tmulti: true\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/component/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Destructive",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Icon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tertiary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Text",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Medium",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Grouped",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LeadingIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/button/stories/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TrailingIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/component/dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DropdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/62",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/component/dropdown.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "VALUE_ACCESSOR_CONFIG",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/dropdown-option.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IDropdownOption",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/search.pipe.ts",
+                "type": "pipe",
+                "linktype": "pipe",
+                "name": "SearchPipe",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/16",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/radio-button/radio-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RadioButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FixedPlaceholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoIndicators",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FixedPlaceholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoIndicators",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/modules/dropdown/stories/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Foundation/Typography/Typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Destructive",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Icon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tertiary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Text",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Medium",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.size.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Grouped",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LeadingIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Button/Button.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TrailingIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FixedPlaceholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoIndicators",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.multi-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithMultilineDescription",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "dropdownOptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FixedPlaceholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "NoIndicators",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OptionsWithIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Dropdown/Dropdown.single-select.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithDescription",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Hint",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "IconLeft",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "IconRight",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Label",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Prefix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Stepper",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Suffix",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.appearance.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Error",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Focus",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Placeholder",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/Layout/Input/Input.state.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

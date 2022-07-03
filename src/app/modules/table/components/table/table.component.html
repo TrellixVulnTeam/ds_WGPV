@@ -1,0 +1,22 @@
+<!-- Header -->
+<sr-table-row
+  *ngIf="!cardView && dataSource.headerData"
+  [enableSelection]="enableSelection"
+  [header]="true"
+  [data]="dataSource.headerData"
+  [isAllSelected]="isAllSelected"
+  [selectionState]="getHeaderSelectionState()"
+  (onSort)="onSortChange($event)"
+  (selectionChange)="onHeaderRowSelectionChange($event)"
+></sr-table-row>
+
+<!-- Body -->
+<ng-container *ngFor="let rowData of dataSource?.bodyData">
+  <sr-table-row
+    [enableSelection]="enableSelection"
+    [cardView]="cardView"
+    [data]="rowData"
+    [selectionState]="isRowSelected(rowData) ? 'checked' : ''"
+    (selectionChange)="onRowSelectionChange($event)"
+  ></sr-table-row>
+</ng-container>

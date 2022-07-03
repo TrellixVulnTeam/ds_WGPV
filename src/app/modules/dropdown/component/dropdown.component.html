@@ -1,0 +1,132 @@
+<div class="label-widget" *ngIf="optional || label">
+  <h3 class="txt txt-body">{{label}}</h3>
+  <span class="txt txt-body" *ngIf="optional">{{optional}}</span>
+</div>
+<div class="host {{class}}" [attr.data-count]="value?.length"
+  [ngClass]="{'multi': value?.length, 'disabled': isDisabled, 'error': isError, 'grouped': grouped}">
+  <ng-container *ngIf="!isMulti">
+    <!-- Toggler -->
+    <button type="button" class="toggler {{sizeInGroup}} {{orderInGroup}}" (click)="toggleDropdown()" [disabled]="isDisabled"
+      [ngClass]="{'focus': isOpen}">
+      <span *ngIf="leadingIcon" class="icon_before {{leadingIcon}}"></span>
+      <span class="placeholder txt txt-body" *ngIf="isPlaceholderFixed || !value?.value"
+        [ngClass]="{'black': value?.value}">{{ placeholder }}
+      </span>
+      <span class="placeholder_selected txt txt-body" *ngIf="!isPlaceholderFixed && value?.value">{{ value?.title }}</span>
+      <span class="icon_after {{trailingIcon || 'si-down'}}" [ngClass]="{'flip-v': isOpen}"></span>
+    </button>
+
+    <!-- List -->
+    <ng-container *ngIf="isOpen">
+      <div @fade class="overflow" (click)="toggleDropdown()"></div>
+      <ul @fadeSlideY class="list" #uList>
+        <div class="list_content" (scroll)="onScroll($event)">
+          <div *ngIf="isSearchable" class="search_section">
+            <input type="text" [(ngModel)]="searchText" (ngModelChange)="search()" [placeholder]="searchPlaceholder">
+            <hr>
+          </div>
+          <ng-container *ngIf="value">
+            <li class="list_item item_selected">
+              <!-- <div *ngIf="!isIndicatorDisabled" class="radio-btn selected"></div> -->
+              <sr-radio *ngIf="!isIndicatorDisabled" [disableControl]="true" state="checked"></sr-radio>
+              <p class="txt-body">{{ value?.title }}</p>
+              <span *ngIf="value?.isDefault" class="lite">{{defaultOptionText}}</span>
+              <i *ngIf="value?.iconClass" [class]="value?.iconClass"></i>
+            </li>
+          <hr>
+          </ng-container>
+          <ng-container *ngFor="let option of !isParentSearchEnabled ? (options | search:searchText) : options">
+            <li *ngIf="!isSelected(option)" class="list_item"(click)="onOptionSelected(option)">
+              <!-- <div *ngIf="!isIndicatorDisabled" class="radio-btn"></div> -->
+              <sr-radio *ngIf="!isIndicatorDisabled" [disableControl]="true"></sr-radio>
+              <p class="txt-body">{{ option?.title }}</p>
+              <span *ngIf="option?.isDefault" class="lite">{{defaultOptionText}}</span>
+              <i *ngIf="option?.iconClass" [class]="option?.iconClass"></i>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="!options || !options?.length || !(options | search:searchText).length">
+            <li *ngIf="!options || (!options?.length && !searchText)" class="list_item" style="cursor: default;">
+              <p class="txt-body">{{ loadingText }}</p>
+            </li>
+            <li *ngIf="searchText && (!options?.length || !(options | search:searchText).length)" class="list_item" style="cursor: default;">
+              <p class="txt-body">{{ noResultText }}</p>
+            </li>
+          </ng-container>
+        </div>
+      </ul>
+    </ng-container>
+  </ng-container>
+
+  <!-- ------------------------------------------------------ -->
+  <!-- ---- [ ↑ Single select ↑ ] - [ ↓ Multi select ↓ ] ---- -->
+  <!-- ------------------------------------------------------ -->
+
+  <ng-container *ngIf="isMulti">
+    <!-- Toggler -->
+    <button type="button" class="toggler" (click)="toggleDropdown()" [disabled]="isDisabled"
+      [ngClass]="{'has-badges': !isPlaceholderFixed && value?.length}">
+      <span *ngIf="leadingIcon" class="icon_before {{leadingIcon}}"></span>
+      <span class="placeholder txt txt-body" [ngClass]="{'black': value?.length}" 
+        *ngIf="(options && options.length) && (isPlaceholderFixed || !value?.length)">{{ placeholder }}
+      </span>
+      <span class="placeholder txt txt-body" *ngIf="!options || !options.length">{{ loadingText }}</span>
+      <div class="badges" *ngIf="isMulti && !isPlaceholderFixed && value?.length">
+        <ng-container *ngFor="let option of value; let i = index">
+          <sr-tag 
+            *ngIf="i < badgesLimit" 
+            [title]="option?.title"
+            (onClose)="onBadgeDeselect($event, option)">
+          </sr-tag>
+        </ng-container>
+        <p class="txt-body" *ngIf="value?.length > badgesLimit">+{{ value?.length - badgesLimit }}</p>
+      </div>
+      <span class="icon_after {{trailingIcon || 'si-down'}}" [ngClass]="{'flip-v': isOpen}"></span>
+    </button>
+
+    <!-- List -->
+    <ng-container *ngIf="isOpen">
+      <div @fade class="overflow" (click)="toggleDropdown()"></div>
+      <ul @fadeSlideY class="list" #uList>
+        <div class="list_content" (scroll)="onScroll($event)">
+          <div *ngIf="isSearchable" class="search_section">
+            <input type="text" [(ngModel)]="searchText" (ngModelChange)="search()" [placeholder]="searchPlaceholder">
+            <hr>
+          </div>
+          <li *ngIf="isSelectAllEnabled && !searchText" class="list_item" [ngClass]="{'item_selected': isAllSelected}"
+            (click)="toggleSelectAll()">
+            <sr-checkbox *ngIf="!isIndicatorDisabled" [state]="isAllSelected ? 'checked' : ''"></sr-checkbox>
+            <p class="txt-body">{{ selectAllText }}</p>
+          </li>
+          <ng-container *ngIf="value?.length">
+            <li *ngFor="let option of value" class="list_item item_selected" (click)="onOptionSelected(option)">
+              <sr-checkbox *ngIf="!isIndicatorDisabled" state="checked"></sr-checkbox>
+              <p class="txt-body">{{ option?.title }}</p>
+              <i *ngIf="option?.iconClass" [class]="option?.iconClass"></i>
+            </li>
+            <hr *ngIf="!(value?.length == options?.length)">
+          </ng-container>
+          <ng-container *ngFor="let option of !isParentSearchEnabled ? (options | search:searchText) : options">
+            <li *ngIf="!isSelected(option)" class="list_item" [ngClass]="{'item_selected': isSelected(option)}" (click)="onOptionSelected(option)">
+              <sr-checkbox *ngIf="!isIndicatorDisabled" [state]="isSelected(option) ? 'checked' : ''"></sr-checkbox>
+              <p class="txt-body">{{ option?.title }}</p>
+              <i *ngIf="option?.iconClass" [class]="option?.iconClass"></i>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="!options || !options?.length || !(options | search:searchText).length">
+            <li *ngIf="!options || (!options?.length && !searchText)" class="list_item" style="cursor: default;">
+              <p class="txt-body">{{ loadingText }}</p>
+            </li>
+            <li *ngIf="searchText && (!options?.length || !(options | search:searchText).length)" class="list_item" style="cursor: default;">
+              <p class="txt-body">{{ noResultText }}</p>
+            </li>
+          </ng-container>
+        </div>
+      </ul>
+    </ng-container>
+  </ng-container>
+</div>
+
+<div *ngIf="description" class="description" [ngClass]="{'error': isError}">
+  <i class="si-info"></i>
+  <p class="txt-caption">{{ description }}</p>
+</div>

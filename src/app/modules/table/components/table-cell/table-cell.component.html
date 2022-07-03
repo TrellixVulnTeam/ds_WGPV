@@ -1,0 +1,47 @@
+<div class="cell-content">
+  <!-- Normal table cell -->
+  <ng-container *ngIf="!checkbox">
+    <ng-container *ngIf="!_data?.custom && !_data?.html">
+      <img *ngIf="_data?.img" [src]="_data.img" alt="" srcset="" />
+      <span 
+        *ngIf="_data?.title || _data?.caption" class="cell-text" 
+        [ngStyle]="{'cursor': _data?.sort ? 'pointer': 'default'}"
+        (click)="changeSortingState()"
+        >
+        <p *ngIf="_data?.caption" class="caption txt-caption">
+          {{ _data.caption }}
+        </p>
+        <p *ngIf="_data?.title" class="txt-body">{{ _data.title }}</p>
+      </span>
+      <i *ngIf="_data?.icon" class="icon {{_data.icon}}"></i>
+      <span *ngIf="_data?.tooltip" class="tooltip-wrapper">
+        <i class="si-error"></i>
+        <span class="tooltip txt txt-caption">
+          <p class="txt-caption">{{_data?.tooltip}}</p>
+        </span>
+      </span>
+      <i 
+        *ngIf="_data?.sort && sortState !== null" class="sort-icon si-arrow-up"
+        [class]="sortState === false ? 'descending' : ''" 
+        (click)="changeSortingState()">
+      </i>
+    </ng-container>
+
+    <!-- Custom HTML -->
+    <div 
+      *ngIf="_data?.custom || _data?.html" 
+      id="customHTML" #customHTML 
+      [style]="_data?.html ? 'display: none;' : 'display: unset;'"
+      [ngStyle]="_data?.custom?.containerStyles || {}">
+    </div>
+  </ng-container>
+
+  <!-- Checkbox only -->
+  <sr-checkbox
+    *ngIf="checkbox"
+    [disableControl]="true"
+    [state]="selectionState"
+    [enableIntermediate]="headerCheckbox"
+    (changed)="onCheckboxClick($event)"
+  ></sr-checkbox>
+</div>

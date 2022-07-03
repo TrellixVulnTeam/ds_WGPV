@@ -1,0 +1,102 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add --dev @babel/cli cross-env
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/mohamedrazzak/dev/flutter/bin:/Users/mohamedrazzak/dev/flutter/bin
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  14.18.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@types/node/-/node-18.0.1.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141512:19)
+      at Object.onceWrapper (events.js:519:28)
+      at ClientRequest.emit (events.js:400:28)
+      at TLSSocket.emitRequestTimeout (_http_client.js:790:9)
+      at Object.onceWrapper (events.js:519:28)
+      at TLSSocket.emit (events.js:412:35)
+      at TLSSocket.Socket._onTimeout (net.js:495:8)
+      at listOnTimeout (internal/timers.js:557:17)
+      at processTimers (internal/timers.js:500:7)
+
+npm manifest: 
+  {
+    "name": "sary-ds",
+    "version": "0.0.0",
+    "scripts": {
+      "ng": "ng",
+      "start": "ng serve",
+      "build": "ng build",
+      "watch": "ng build --watch --configuration development",
+      "test": "ng test",
+      "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
+      "storybook": "start-storybook -p 6006",
+      "build-storybook": "npm run docs:json && build-storybook"
+    },
+    "private": true,
+    "dependencies": {
+      "@angular/animations": "^14.0.1",
+      "@angular/common": "~13.3.0",
+      "@angular/compiler": "~13.3.0",
+      "@angular/core": "~13.3.0",
+      "@angular/forms": "~13.3.0",
+      "@angular/platform-browser": "~13.3.0",
+      "@angular/platform-browser-dynamic": "~13.3.0",
+      "@angular/router": "~13.3.0",
+      "rxjs": "~7.5.0",
+      "tslib": "^2.3.0",
+      "zone.js": "~0.11.4"
+    },
+    "devDependencies": {
+      "@angular-devkit/build-angular": "~13.3.7",
+      "@angular/cli": "~13.3.7",
+      "@angular/compiler-cli": "~13.3.0",
+      "@babel/core": "^7.18.2",
+      "@compodoc/compodoc": "^1.1.19",
+      "@storybook/addon-actions": "^6.5.6",
+      "@storybook/addon-essentials": "^6.5.6",
+      "@storybook/addon-interactions": "^6.5.6",
+      "@storybook/addon-links": "^6.5.6",
+      "@storybook/angular": "^6.5.6",
+      "@storybook/builder-webpack5": "^6.5.6",
+      "@storybook/manager-webpack5": "^6.5.6",
+      "@storybook/testing-library": "0.0.11",
+      "@types/jasmine": "~3.10.0",
+      "@types/node": "^12.11.1",
+      "babel-loader": "^8.2.5",
+      "jasmine-core": "~4.0.0",
+      "karma": "~6.3.0",
+      "karma-chrome-launcher": "~3.1.0",
+      "karma-coverage": "~2.1.0",
+      "karma-jasmine": "~4.0.0",
+      "karma-jasmine-html-reporter": "~1.7.0",
+      "typescript": "~4.6.2"
+    },
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/@SaryTech/sary-ds"
+    },
+    "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.",
+    "main": "karma.conf.js",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/SaryTech/SaryDesignSystem.git"
+    },
+    "author": "Sary Team",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/SaryTech/SaryDesignSystem/issues"
+    },
+    "homepage": "https://github.com/SaryTech/SaryDesignSystem#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
